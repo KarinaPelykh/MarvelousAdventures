@@ -1,0 +1,61 @@
+:root {
+  --bg-body: #0c0b0b;
+  --main-font: "Poppins", sans-serif;
+  --main-color-font: #fafafa;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--bg-body);
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-style: normal;
+  color: var(--main-color-font);
+}
+@media screen and (min-width: 1440px) {
+  body {
+    position: relative;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+a,
+p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 704px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+  }
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

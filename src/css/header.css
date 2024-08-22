@@ -1,0 +1,92 @@
+.header {
+  margin-top: 20px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+@media screen and (min-width: 768px) {
+  .header {
+    padding-top: 24px;
+    margin: 0;
+  }
+}
+
+/* .container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 704px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+  }
+} */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.link-logo {
+}
+.logo {
+  width: 98px;
+  height: 15px;
+}
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 202px;
+    height: 31px;
+  }
+}
+.label {
+  position: relative;
+}
+.input {
+  border-radius: 1000px;
+  border: 1px #fafafa4d solid;
+  outline: none;
+  background: transparent;
+  padding: 6px 18px;
+  width: 108px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .input {
+    padding: 12px 24px;
+    width: 130px;
+    height: 42px;
+  }
+}
+.input::placeholder {
+  color: #fafafa;
+  font-size: 14px;
+  font-family: 500;
+  text-align: end;
+}
+.input-svg {
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  width: 16px;
+  height: 16px;
+}
+@media screen and (min-width: 768px) {
+  .input-svg {
+    top: 13px;
+    left: 21px;
+    width: 18px;
+    height: 18px;
+  }
+}
