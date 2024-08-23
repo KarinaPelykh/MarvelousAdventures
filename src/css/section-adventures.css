@@ -10,7 +10,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .wrapper {
+  .section-wrapper {
     display: flex;
   }
 }
@@ -19,6 +19,11 @@
   .thumb {
     max-width: 538px;
     text-align: start;
+  }
+}
+@media screen and (min-width: 768px) {
+  .thumb {
+    margin-right: 66px;
   }
 }
 .text {
@@ -95,16 +100,27 @@
     margin: 0;
     position: absolute;
     top: 0;
-    right: 34px;
-    z-index: -1;
+    right: 0;
+    /* z-index: -1; */
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 640px;
   }
 }
 .item {
   width: 100%;
   margin-right: 40px;
-  /* transition: 0.5s; */
+  transition: 0.5s;
 }
-
+@media screen and (min-width: 1440px) {
+  .item {
+    width: 100%;
+    /* max-width: 704px; */
+    margin-right: 0px;
+    /* transition: 0.5s; */
+  }
+}
 .slid-hero {
   width: 305px;
   display: flex;
@@ -112,7 +128,8 @@
 }
 @media screen and (min-width: 768px) {
   .slid-hero {
-    width: 704px;
+    width: 100%;
+    /* width: 704px; */
     flex-direction: row;
   }
 }
@@ -131,7 +148,6 @@
 @media screen and (min-width: 768px) {
   .slid-hero img {
     width: 352px;
-    height: 540px;
   }
 }
 .block-info {
@@ -159,7 +175,7 @@
   margin-bottom: 40px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1440px) {
   .pagination {
     display: flex;
     flex-direction: column;
