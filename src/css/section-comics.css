@@ -5,3 +5,56 @@
   font-size: 44px;
   font-weight: 500;
 }
+.comics {
+  margin-top: 64px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.item-comics {
+  margin-right: 16px;
+}
+.item-comics:last-child {
+  margin-right: 0px;
+}
+
+.img-comics {
+  width: 448px;
+  height: 519px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+.button-next {
+  position: relative;
+  border-radius: 100%;
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+  border: 1px solid #fafafa63;
+}
+.button-prev {
+  position: relative;
+  margin-right: 16px;
+  border-radius: 100%;
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+  border: 1px solid #fafafa63;
+}
+
+.active-button {
+  background-color: #34387f;
+}
+.svg-comics {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  width: 18px;
+  height: 12px;
+}
+.button-wrapper {
+  margin-top: 32px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

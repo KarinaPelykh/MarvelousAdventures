@@ -1,0 +1,54 @@
+.hero {
+  position: relative;
+  height: 769px;
+}
+.background {
+  position: absolute;
+  top: -260px;
+  right: 0;
+  width: 1281px;
+  height: 769px;
+  background-image: url("../img/avengers-marvel\ 1.png");
+  background-repeat: no-repeat;
+  background-size: 1281px 769px;
+  z-index: -1;
+}
+.hero-wrapper {
+  margin-top: 204px;
+  width: 830px;
+  height: 251px;
+}
+
+.title-hero {
+  font-size: 44px;
+  font-weight: 500;
+  color: #fafafa;
+  line-height: 44px;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 768px) {
+  .title-hero {
+    font-size: 150px;
+    line-height: 80px;
+  }
+}
+.description-hero {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 18px;
+}
+@media screen and (min-width: 768px) {
+  .description-hero {
+    font-size: 16px;
+    margin-bottom: 32px;
+    width: 473px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .description-hero {
+    width: 469px;
+    margin-left: 88px;
+  }
+}

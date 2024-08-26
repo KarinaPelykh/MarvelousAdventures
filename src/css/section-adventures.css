@@ -1,7 +1,6 @@
 .section {
   margin-top: 44px;
   text-align: start;
-  /* overflow-x: hidden; */
 }
 @media screen and (min-width: 768px) {
   .section {
@@ -60,6 +59,11 @@
     width: 473px;
   }
 }
+@media screen and (min-width: 1440px) {
+  .description {
+    width: 527px;
+  }
+}
 .button {
   font-size: 12px;
   border-radius: 30px;
@@ -70,6 +74,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
+  background-color: #34387f;
 }
 @media screen and (min-width: 768px) {
   .button {
@@ -101,7 +106,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    /* z-index: -1; */
+    z-index: -1;
     overflow-y: hidden;
     display: flex;
     flex-direction: column;
@@ -112,6 +117,7 @@
   width: 100%;
   margin-right: 40px;
   transition: 0.5s;
+  position: relative;
 }
 @media screen and (min-width: 1440px) {
   .item {
@@ -150,7 +156,10 @@
     width: 352px;
   }
 }
+
 .block-info {
+  background-repeat: no-repeat;
+  background-position: right 120%;
   margin-left: auto;
   margin-top: 20px;
   width: 190px;
@@ -181,10 +190,11 @@
     flex-direction: column;
   }
   .pagination button {
-    height: 50px;
-    width: 2px;
+    height: 100px;
+    width: 4px;
     margin-top: 12px;
     padding: 0;
+    border: none;
   }
 }
 .info-wrapper {
