@@ -93,7 +93,8 @@
   overflow-x: hidden;
   width: 305px;
 }
-@media screen and (min-width: 768px) {
+
+@media screen and (min-width: 767px) {
   .gallery {
     margin-top: 32px;
     width: 704px;
@@ -114,17 +115,19 @@
   }
 }
 .item {
+  background-size: 170px 153px;
+  background-repeat: no-repeat;
+  background-position: right 100%;
   width: 100%;
   margin-right: 40px;
   transition: 0.5s;
   position: relative;
+  transition: 0.5s;
 }
 @media screen and (min-width: 1440px) {
   .item {
     width: 100%;
-    /* max-width: 704px; */
     margin-right: 0px;
-    /* transition: 0.5s; */
   }
 }
 .slid-hero {
@@ -132,10 +135,10 @@
   display: flex;
   flex-direction: column;
 }
+
 @media screen and (min-width: 768px) {
   .slid-hero {
     width: 100%;
-    /* width: 704px; */
     flex-direction: row;
   }
 }
@@ -151,15 +154,13 @@
     margin-right: 32px;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1440px) {
   .slid-hero img {
     width: 352px;
   }
 }
 
 .block-info {
-  background-repeat: no-repeat;
-  background-position: right 120%;
   margin-left: auto;
   margin-top: 20px;
   width: 190px;
@@ -174,16 +175,20 @@
   }
 }
 
-.active {
-  background: #b73131;
-}
 .pagination {
   display: flex;
   justify-content: center;
   margin-top: 40px;
-  margin-bottom: 40px;
 }
+.pagination button {
+  background-color: #1717174c;
+  height: 4px;
+  width: 74px;
 
+  margin-right: 14px;
+  padding: 0;
+  border: none;
+}
 @media screen and (min-width: 1440px) {
   .pagination {
     display: flex;
@@ -211,7 +216,14 @@
 .span {
   font-size: 12px;
   font-weight: 400;
-  margin-right: 52px;
+  margin-right: 14px;
+}
+@media screen and (min-width: 1440px) {
+  .span {
+    font-size: 12px;
+    font-weight: 400;
+    margin-right: 52px;
+  }
 }
 .text-span {
   font-size: 12px;

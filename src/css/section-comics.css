@@ -1,16 +1,49 @@
 .section-comics {
-  margin-top: 128px;
+  margin-top: 79px;
+}
+@media screen and (min-width: 1440px) {
+  .section-comics {
+    margin-top: 128px;
+  }
 }
 .sub-title {
-  font-size: 44px;
+  font-size: 28px;
+  line-height: 18px;
   font-weight: 500;
+  margin-bottom: 44px;
+}
+@media screen and (min-width: 1440px) {
+  .sub-title {
+    font-size: 44px;
+    font-weight: 500;
+  }
 }
 .comics {
+  width: 100%;
   margin-top: 64px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
 }
+/* .swiper {
+  width: 1376px !important;
+  height: 585px !important;
+}*/
+
+@media screen and (min-width: 1440px) {
+  .swiper-slide {
+    width: 448px !important;
+    height: 558px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .comics {
+    margin-top: 64px;
+    width: 1280px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .item-comics {
   margin-right: 16px;
 }
@@ -19,42 +52,86 @@
 }
 
 .img-comics {
-  width: 448px;
-  height: 519px;
-  margin-bottom: 16px;
+  width: 323px;
+  height: 374px;
+  margin-bottom: 14px;
   border-radius: 8px;
 }
+@media screen and (min-width: 1440px) {
+  .img-comics {
+    width: 448px;
+    height: 519px;
+    margin-bottom: 16px;
+  }
+}
+.title-comics {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 4px;
+}
+.author {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #fafafa83;
+}
+
 .button-next {
   position: relative;
   border-radius: 100%;
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   background-color: transparent;
   border: 1px solid #fafafa63;
+}
+@media screen and (min-width: 1440px) {
+  .button-next {
+    width: 44px;
+    height: 44px;
+  }
 }
 .button-prev {
   position: relative;
   margin-right: 16px;
   border-radius: 100%;
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   background-color: transparent;
   border: 1px solid #fafafa63;
 }
-
-.active-button {
-  background-color: #34387f;
+@media screen and (min-width: 1440px) {
+  .button-prev {
+    width: 44px;
+    height: 44px;
+  }
 }
+
 .svg-comics {
   position: absolute;
-  top: 40%;
-  left: 30%;
-  width: 18px;
-  height: 12px;
+  top: 30%;
+  left: 35%;
+  width: 10px;
+  height: 15px;
 }
+@media screen and (min-width: 1440px) {
+  .svg-comics {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 18px;
+    height: 12px;
+  }
+}
+
 .button-wrapper {
-  margin-top: 32px;
+  margin-top: 129px;
   width: 100%;
   display: flex;
   justify-content: center;
+}
+@media screen and (min-width: 1440px) {
+  .button-wrapper {
+    margin-top: 32px;
+  }
 }

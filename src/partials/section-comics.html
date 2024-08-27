@@ -1,14 +1,36 @@
 <section class="section-comics">
   <div class="container">
     <h2 class="sub-title">Last Comics</h2>
-    <ul class="comics js-comics"></ul>
-    <div class="js-button-wrapper button-wrapper">
-      <button class="button-prev js-previous">
-        <svg class="svg-comics"><use href="../img/sprite.svg#left"></use></svg>
-      </button>
-      <button class="button-next js-next">
-        <svg class="svg-comics"><use href="../img/sprite.svg#right"></use></svg>
-      </button>
+    <div class="swiper">
+      <div class="comics js-comics swiper-wrapper"></div>
+      <!-- <div class="swiper-pagination"></div> -->
+      <div class="button-wrapper">
+        <button class="button-prev js-previous swiper-button-prev">
+          <svg class="svg-comics">
+            <use href="../img/sprite.svg#left"></use>
+          </svg>
+        </button>
+        <button class="button-next js-next swiper-button-next">
+          <svg class="svg-comics">
+            <use href="../img/sprite.svg#right"></use>
+          </svg>
+        </button>
+      </div>
+
+      <!-- <div class="swiper-scrollbar"></div> -->
     </div>
+    <!-- <ul class="comics js-comics swiper"></ul>
+    <div class="button-wrapper swiper-pagination">
+      <button class="button-prev js-previous swiper-button-prev">
+        <svg class="svg-comics">
+          <use href="../img/sprite.svg#left"></use>
+        </svg>
+      </button>
+      <button class="button-next js-next swiper-button-next">
+        <svg class="svg-comics">
+          <use href="../img/sprite.svg#right"></use>
+        </svg>
+      </button>
+    </div> -->
   </div>
 </section>

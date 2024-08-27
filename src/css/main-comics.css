@@ -1,7 +1,14 @@
 .hero {
+  margin-top: 79px;
   position: relative;
   height: 769px;
 }
+/* @media screen and (win-width: 1440px) {
+  .hero {
+    position: relative;
+    
+  }
+} */
 .background {
   position: absolute;
   top: -260px;

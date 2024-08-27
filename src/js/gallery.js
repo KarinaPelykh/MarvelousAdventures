@@ -2,7 +2,7 @@ import { marvelHero } from "../../public/data";
 const gallery = document.querySelector(".gallery");
 const pagination = document.querySelector(".pagination");
 const buttonLink = document.querySelector(".js-button");
-const buttonPrev = document.querySelector(".js-previous");
+// const buttonPrev = document.querySelector(".js-previous");
 
 let currentIndex = 0;
 const buttons = [];
@@ -38,11 +38,12 @@ const slides = document.querySelectorAll(".gallery .item");
 //update slide
 const handelUpdateImg = () => {
   const offset = -currentIndex * 100;
+  const offsets = -currentIndex * 105;
   slides.forEach((slide) => {
     slide.style.transform =
       window.innerWidth >= 1440
         ? `translateY(${offset}%)`
-        : `translateX(${offset}%)`;
+        : `translateX(${offsets}%)`;
   });
 };
 
@@ -82,7 +83,7 @@ const handleChangeColorButton = (prevIndex) => {
         (prevIndex == 2 && "#5B7F3C");
       button.style.background = background;
     } else {
-      button.style.background = "white";
+      button.style.background = "#1717174C";
     }
   });
 };
@@ -90,15 +91,12 @@ const handleChangeColorButton = (prevIndex) => {
 const handelChangeColor = (prevIndex) => {
   switch (prevIndex) {
     case 0:
-      buttonPrev.style.backgroundColor = "#600404";
       buttonLink.style.backgroundColor = "#600404";
       break;
     case 1:
-      buttonPrev.style.backgroundColor = "#34387F";
       buttonLink.style.backgroundColor = "#34387F";
       break;
     case 2:
-      buttonPrev.style.backgroundColor = "#5B7F3C";
       buttonLink.style.backgroundColor = "#5B7F3C";
       break;
     default:
@@ -110,7 +108,7 @@ const handelChangeColor = (prevIndex) => {
 // change color background
 const bg = ["../img/pantera.png", "../img/hulk-gr.png", "../img/spider.png"];
 const handelChangeBg = () => {
-  const items = document.querySelectorAll(".item .block-info");
+  const items = document.querySelectorAll(".item");
   items.forEach((el, index) => {
     const background = bg[index % bg.length];
     el.style.backgroundImage = `url(${background})`;
