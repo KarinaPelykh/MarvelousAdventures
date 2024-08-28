@@ -1,0 +1,26 @@
+.modal-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(20, 20, 20, 0.6);
+  z-index: 55;
+}
+.overlae {
+  position: absolute;
+  background-color: #000;
+  width: 1000px;
+  height: 842px;
+  padding: 64px 32px;
+}
+.is-modal-open {
+  display: flex;
+}
+
+.photo-comics {
+  width: 120px;
+}
