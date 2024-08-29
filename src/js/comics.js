@@ -11,7 +11,7 @@ const TS = "karina";
 
 const HASH = CryptoJS.MD5(TS + API_KEY_PRIVATE + API_KEY_PUBLIC).toString();
 const url = `${BASE_URL}/v1/public/comics?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`;
-const limit = 6;
+const limit = 20;
 
 const fetchAuthorization = async () => {
   try {
@@ -68,7 +68,7 @@ const handelMakeSlider = (sliderElement) => {
   if (sliderElement.length !== 0) {
     const swiperInstance = new Swiper(".swiper", {
       direction: "horizontal",
-      loop: true,
+
       spaceBetween: 16,
 
       pagination: {
@@ -102,13 +102,12 @@ const getInformationAboutComics = async (comicId) => {
     const { data } = await axios.get(
       `${BASE_URL}/v1/public/comics/${comicId}?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`
     );
+    console.log(data);
+
     getData(data);
     const modal = document.querySelector(".modal-window");
     modal.classList.toggle("is-modal-open");
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 };
 const handelGetIdInfo = (e) => {
   const item = e.target.closest(".item-comics");

@@ -16,16 +16,22 @@ const getTitle = (e) => {
 };
 
 const handelGetComics = async (title) => {
-  const { data } = await axios.get(
-    `${BASE_URL}/v1/public/comics?titleStartsWith=${title}&apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}&limit=4`
-  );
-  data.data.results.forEach(({ title }) => {
-    const item = document.createElement("li");
-    const li = (item.textContent = title);
-    console.log(li);
-
-    select.insertAdjacentHTML("beforeend", li);
-  });
+  try {
+    const { data } = await axios.get(
+      `${BASE_URL}/v1/public/comics?titleStartsWith=${title}&apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}&limit=4`
+    );
+    data.data.results.forEach(({ title }) => {
+      const item = document.createElement("li");
+      const li = (item.textContent = title);
+      console.log(li);
+      select.insertAdjacentHTML("beforeend", li);
+      if (data.data.results.length > 0) {
+        window.location.replace("../page-comics.html");
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 input.addEventListener("input", getTitle);
