@@ -18,6 +18,21 @@
   padding: 64px 32px;
   border-radius: 8px;
 }
+.swiper-button-next {
+  background-image: url("../img/sprite.svg#right");
+}
+.swiper-button-prev {
+  background-image: url("../img/sprite.svg#left");
+}
+.active-button {
+  background-color: #34387f;
+  border: 1px white solid;
+  svg {
+    fill: #fafafa;
+    opacity: 1;
+  }
+}
+
 .is-modal-open {
   display: flex;
 }
@@ -60,7 +75,7 @@
   align-items: center;
 }
 .comics-caption {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 24px;
 }
@@ -136,6 +151,8 @@
 }
 .creators {
   display: flex;
+  align-items: center;
+  margin-bottom: 32px;
 }
 .images-creators {
   width: 60px;

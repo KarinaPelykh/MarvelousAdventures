@@ -113,6 +113,8 @@
   left: 35%;
   width: 10px;
   height: 15px;
+  fill: #fafafa;
+  opacity: 0.3;
 }
 @media screen and (min-width: 1440px) {
   .svg-comics {

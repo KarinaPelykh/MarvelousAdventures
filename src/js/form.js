@@ -5,33 +5,42 @@ const API_KEY_PRIVATE = "86167992f51495ba975666074c2de2488a64fb00";
 const API_KEY_PUBLIC = "7f8ef27ce3f21548c1d09757433025a4";
 const BASE_URL = "https://gateway.marvel.com:443";
 const TS = "karina";
-
+const comics = "request_user";
 const HASH = CryptoJS.MD5(TS + API_KEY_PRIVATE + API_KEY_PUBLIC).toString();
-const url = `${BASE_URL}/v1/public/comics?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`;
+
 const input = document.querySelector(".input");
-const select = document.querySelector(".select");
-const getTitle = (e) => {
-  const title = e.target.value;
-  handelGetComics(title);
-};
+const newListComic = document.querySelector(".new-list-comic");
 
 const handelGetComics = async (title) => {
   try {
     const { data } = await axios.get(
-      `${BASE_URL}/v1/public/comics?titleStartsWith=${title}&apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}&limit=4`
+      `${BASE_URL}/v1/public/comics?titleStartsWith=${title}&apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`
     );
-    data.data.results.forEach(({ title }) => {
-      const item = document.createElement("li");
-      const li = (item.textContent = title);
-      console.log(li);
-      select.insertAdjacentHTML("beforeend", li);
-      if (data.data.results.length > 0) {
-        window.location.replace("../page-comics.html");
-      }
-    });
+    return data;
   } catch (error) {
     console.log(error);
   }
 };
 
+const getTitle = (e) => {
+  const title = e.target.value;
+
+  if (title) {
+    handelGetComics(title).then((data) => {
+      data.data.results.forEach(({ title }) => {
+        const item = document.createElement("li");
+        item.classList.add("new-comic-item");
+
+        item.textContent = title;
+        newListComic.appendChild(item);
+      });
+    });
+  }
+};
+
+newListComic.addEventListener("click", (e) => {
+  const userSelected = JSON.stringify(e.target.value);
+  localStorage.setItem(comics, userSelected);
+  window.location.replace("../page-comics.html");
+});
 input.addEventListener("input", getTitle);

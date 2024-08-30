@@ -7,8 +7,8 @@ const TS = "karina";
 
 const HASH = CryptoJS.MD5(TS + API_KEY_PRIVATE + API_KEY_PUBLIC).toString();
 const modal = document.querySelector(".overlae");
-const window = document.querySelector(".modal-window");
-
+const modalWindow = document.querySelector(".modal-window");
+const body = document.querySelector("body");
 const imgCreators = "https://www.svgrepo.com/show/86725/person.svg";
 const handelAddInfoHtml = ({
   title,
@@ -22,7 +22,8 @@ const handelAddInfoHtml = ({
   data,
 }) => {
   const { monthAndYear, year } = formattingDate(data);
-
+  const changesTitle = title.indexOf("#");
+  const newTitle = title.slice(0, changesTitle);
   return `
   <button id="button" class="button-close"><svg><use href="../img/sprite.svg#close"></svg></button>
   <div class="wrapper-modal">
@@ -33,7 +34,7 @@ const handelAddInfoHtml = ({
     <div class="thumb-modal">
       <div class="daredevil">
         <div class="info-comics">
-          <h3 class="comics-caption">${title}</h3>
+          <h3 class="comics-caption">${newTitle}</h3>
            <p class="name-date">${name[0].name} | ${monthAndYear}</p>
         </div>
         <p class="comics-descriptions">${description}</p>
@@ -65,7 +66,7 @@ const handelAddInfoHtml = ({
       <div class="info-creators">
           <h3 class="creators-title">Creators</h3>
           <div class="creators">
-            <img class="images-creators" scr=${imgCreators} alt="Creators" />
+            <img class="images-creators" src=${imgCreators} alt="Creators" />
             <div class="thumb-role">
               <p class="role">${name[0].role}</p>
               <p class="name-writer">${name[0].name}</p>
@@ -83,7 +84,10 @@ const handelAddInfoHtml = ({
     
   `;
 };
-
+const handelScroll = () => {
+  const IsOpen = modalWindow.classList.contains("is-modal-open");
+  body.style.overflow = IsOpen ? "hidden" : "auto";
+};
 const getData = (data) => {
   const { results } = data.data;
   const modalHtml = results.map(
@@ -121,7 +125,8 @@ const getData = (data) => {
   modal.innerHTML = modalHtml.join("");
   const button = document.getElementById("button");
   button.addEventListener("click", () => {
-    window.classList.toggle("is-modal-open");
+    modalWindow.classList.toggle("is-modal-open");
+    handelScroll();
   });
 };
 
@@ -172,4 +177,21 @@ const formattingDate = (data) => {
   const year = format(new Date(data), "yyyy");
   return { monthAndYear, year };
 };
+
+const handleCloseModal = (e) => {
+  const clickOnModal = e.target === e.currentTarget;
+  if (clickOnModal) {
+    modalWindow.classList.remove("is-modal-open");
+    handelScroll();
+  }
+};
+const handleCloseModalEscape = (e) => {
+  const clickEscape = e.code === "Escape";
+  if (clickEscape) {
+    modalWindow.classList.remove("is-modal-open");
+    handelScroll();
+  }
+};
+modalWindow.addEventListener("click", handleCloseModal);
+document.addEventListener("keydown", handleCloseModalEscape);
 export default getData;

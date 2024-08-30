@@ -60,11 +60,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
 }
 
 @media screen and (min-width: 768px) {
   .input {
-    padding: 12px 24px;
+    padding: 12px 24px 12px 40px;
     width: 130px;
     height: 42px;
   }
@@ -89,4 +90,14 @@
     width: 18px;
     height: 18px;
   }
+}
+.new-list-comic {
+  width: 208px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  padding: 12px;
+}
+.new-comic-item {
+  margin-bottom: 10px;
+  color: #000;
 }
