@@ -4,11 +4,20 @@
       <a href="../index.html" class="link-logo"
         ><svg class="logo"><use href="../img/sprite.svg#logo"></use></svg
       ></a>
-      <label class="label">
-        <input class="input" placeholder="SEARCH" name="input" />
-        <select class="new-list-comic"></select>
-        <svg class="input-svg"><use href="../img/sprite.svg#search"></use></svg
-      ></label>
+      <form class="label form-search">
+        <input
+          class="input"
+          placeholder="SEARCH"
+          name="input"
+          autocomplete="off"
+        />
+        <ul class="new-list-comic"></ul>
+        <button type="submit" class="button-submit">
+          <svg class="input-svg">
+            <use href="../img/sprite.svg#search"></use>
+          </svg>
+        </button>
+      </form>
     </nav>
   </div>
 </header>

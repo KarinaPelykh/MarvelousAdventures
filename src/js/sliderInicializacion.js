@@ -9,7 +9,7 @@ export const handelMakeSlider = (sliderElement) => {
       },
 
       breakpoints: {
-        376: {
+        320: {
           slidesPerView: 1,
         },
         768: {
@@ -42,6 +42,6 @@ export const handelMakeSlider = (sliderElement) => {
         },
       },
     });
-    // swiperInstance.update();
+    swiperInstance.update();
   }
 };

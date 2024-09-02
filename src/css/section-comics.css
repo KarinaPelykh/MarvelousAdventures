@@ -22,7 +22,8 @@
   width: 100%;
   margin-top: 64px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 /* .swiper {
   width: 1376px !important;
@@ -35,11 +36,11 @@
     height: 558px;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 767px) {
   .comics {
     margin-top: 64px;
     width: 1280px;
-    display: flex;
+
     justify-content: center;
   }
 }
@@ -52,8 +53,8 @@
 }
 
 .img-comics {
-  width: 323px;
-  height: 374px;
+  /* width: 323px;
+  height: 374px; */
   margin-bottom: 14px;
   border-radius: 8px;
 }

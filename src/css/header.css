@@ -46,7 +46,7 @@
     height: 31px;
   }
 }
-.label {
+.form-search {
   position: relative;
 }
 .input {
@@ -76,28 +76,47 @@
   font-family: 500;
   text-align: end;
 }
-.input-svg {
+
+.button-submit {
   position: absolute;
   top: 6px;
   left: 14px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .button-submit {
+    top: 13px;
+    left: 11px;
+  }
+}
+.input-svg {
   width: 16px;
   height: 16px;
 }
 @media screen and (min-width: 768px) {
   .input-svg {
-    top: 13px;
-    left: 21px;
     width: 18px;
     height: 18px;
   }
 }
 .new-list-comic {
+  display: none;
   width: 208px;
   background-color: #fafafa;
   border-radius: 8px;
   padding: 12px;
+  position: absolute;
+  top: 50px;
+  left: -140px;
 }
 .new-comic-item {
   margin-bottom: 10px;
   color: #000;
+  cursor: pointer;
+}
+.new-comic-item:hover {
+  background-color: #0000ff53;
 }
