@@ -2,6 +2,9 @@
   margin-top: 20px;
   padding-top: 6px;
   padding-bottom: 6px;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
 }
 @media screen and (min-width: 768px) {
   .header {
@@ -54,7 +57,7 @@
   border: 1px #fafafa4d solid;
   outline: none;
   background: transparent;
-  padding: 6px 18px;
+  padding: 6px 18px 6px 30px;
   width: 108px;
   height: 28px;
   display: flex;
@@ -85,6 +88,7 @@
   border: none;
   display: flex;
   justify-content: center;
+  padding: 0;
 }
 @media screen and (min-width: 768px) {
   .button-submit {

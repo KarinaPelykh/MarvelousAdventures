@@ -1,67 +1,120 @@
 .hero {
-  margin-top: 79px;
   position: relative;
-  height: 769px;
+  height: 291px;
 }
-/* @media screen and (win-width: 1440px) {
+@media screen and (min-width: 768px) {
   .hero {
-    position: relative;
-    
+    margin-top: 79px;
+    height: 500px;
   }
-} */
+}
+@media screen and (min-width: 1440px) {
+  .hero {
+    margin-top: 79px;
+    height: 569px;
+  }
+}
 .background {
   position: absolute;
-  top: -260px;
-  right: 0;
-  width: 1281px;
-  height: 769px;
-  background-image: url("../img/avengers-marvel\ 1.png");
+  top: -190px;
+  right: 0px;
+  width: 100vw;
+  height: 461px;
+  background-image: url("../img/avengers-marvel-mobil.jpg");
   background-repeat: no-repeat;
-  background-size: 1281px 769px;
+  background-size: 375px 461px;
+  background-position: 50% 50%;
   z-index: -1;
+}
+
+@media screen and (min-width: 768px) {
+  .background {
+    position: absolute;
+    top: -200px;
+    right: 0;
+
+    width: 768px;
+    height: 769px;
+    background-image: url("../img/avengers-marvel-tablet.jpg");
+    background-size: 580px 651px;
+    background-position: top right;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .background {
+    position: absolute;
+    top: -260px;
+    right: 0px;
+    width: 1281px;
+    height: 769px;
+    background-image: url("../img/avengers-marvel\ 1.png");
+    background-size: 1281px 769px;
+    background-position: right top;
+  }
 }
 .hero-wrapper {
   margin-top: 204px;
-  /* width: 830px; */
-  /* height: 251px; */
 }
 .text-all-comics {
-  font-size: 18px;
+  font-size: 14px;
   color: #ffffffb3;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  line-height: 18px;
   font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  .text-all-comics {
+    font-size: 18px;
+    line-height: 16px;
+    margin-bottom: 16px;
+  }
 }
 
 .title-hero {
-  font-size: 44px;
+  font-size: 60px;
   font-weight: 500;
   color: #fafafa;
-  line-height: 44px;
+  line-height: 60px;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
 }
 @media screen and (min-width: 768px) {
   .title-hero {
     font-size: 150px;
-    line-height: 80px;
+    line-height: 150px;
   }
 }
+
 .description-hero {
   font-size: 14px;
   font-weight: 400;
-  margin-bottom: 20px;
   line-height: 18px;
 }
 @media screen and (min-width: 768px) {
   .description-hero {
     font-size: 16px;
-    margin-bottom: 32px;
-    width: 473px;
+    margin-left: 88px;
+    width: 469px;
   }
 }
-@media screen and (min-width: 1440px) {
-  .description-hero {
-    width: 469px;
-    margin-left: 88px;
+
+.button-back {
+  background-color: transparent;
+  border: 1px white solid;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  border-radius: 30px;
+  margin-top: 71px;
+}
+@media screen and (min-width: 768px) {
+  .button-back {
+    margin-top: 171px;
   }
+}
+
+.wrapp-button {
+  display: flex;
+  justify-content: end;
 }

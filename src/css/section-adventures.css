@@ -92,6 +92,7 @@
   display: flex;
   overflow-x: hidden;
   width: 305px;
+  height: auto;
 }
 
 @media screen and (min-width: 767px) {
@@ -115,18 +116,33 @@
   }
 }
 .item {
-  background-size: 170px 153px;
+  background-size: 250px 203px;
   background-repeat: no-repeat;
-  background-position: right 100%;
+  background-position: right 90%;
   width: 100%;
-  margin-right: 40px;
+  /* margin-right: 30px; */
+  margin-right: 10px;
+
   transition: 0.5s;
   position: relative;
   transition: 0.5s;
 }
+@media screen and (min-width: 768px) {
+  .item {
+    background-size: 332px 300px;
+    width: 100%;
+    margin-right: 50px;
+    /* margin-right: 0px; */
+  }
+  .item:first-child {
+    background-position: right 110%;
+    background-size: 332px 300px;
+    width: 100%;
+    margin-right: 0px;
+  }
+}
 @media screen and (min-width: 1440px) {
   .item {
-    width: 100%;
     margin-right: 0px;
   }
 }

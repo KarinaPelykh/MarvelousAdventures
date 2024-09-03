@@ -6,7 +6,7 @@ const API_KEY_PUBLIC = "7f8ef27ce3f21548c1d09757433025a4";
 const TS = "karina";
 
 const HASH = CryptoJS.MD5(TS + API_KEY_PRIVATE + API_KEY_PUBLIC).toString();
-const modal = document.querySelector(".overlae");
+const modal = document.querySelector(".overlay");
 const modalWindow = document.querySelector(".modal-window");
 const body = document.querySelector("body");
 const imgCreators = "https://www.svgrepo.com/show/86725/person.svg";

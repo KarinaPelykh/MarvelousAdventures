@@ -1,14 +1,21 @@
 .all-comics {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 
 .comic-list-item {
-  margin-right: 16px;
+  /* margin-right: 16px; */
   width: 323px;
 }
+@media screen and (min-width: 768px) {
+  .comic-list-item {
+    /* margin-right: 32px; */
+    /* width: 336px; */
+  }
+}
+
 .comic-list-item:last-child {
   margin-right: 0px;
 }
