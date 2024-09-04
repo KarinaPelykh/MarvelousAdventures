@@ -1,0 +1,45 @@
+.section-default {
+  display: none;
+  justify-content: center;
+  margin-top: 40px;
+}
+@media screen and (min-width: 768px) {
+  .section-default {
+    margin-top: 128px;
+  }
+}
+.wrapper-svg {
+  width: 267px;
+  height: 152px;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .wrapper-svg {
+    width: 375px;
+    height: 221px;
+  }
+}
+.img-default {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.text-default {
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  width: 151px;
+}
+@media screen and (min-width: 768px) {
+  .text-default {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    font-size: 24px;
+    line-height: 28px;
+    width: 200px;
+  }
+}

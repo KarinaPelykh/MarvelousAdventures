@@ -147,28 +147,44 @@ const handelMapCreators = (data) => {
   });
 };
 
-const handelGetDetail = async (resourceURI) => {
-  try {
-    const { data } = await axios.get(
-      `${resourceURI}?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`
-    );
-    const photoCharacter = data.data.results[0].thumbnail;
-    const linkPhoto = `${photoCharacter.path}.${photoCharacter.extension}`;
-    return linkPhoto;
-  } catch (error) {
-    console.log(error);
-  }
-};
-const d = (img, name) => {
-  return ` <li ><img src="${img}" alt="Characters" /> <p>${name}</p>
-     </li>`;
-};
+// const handelGetDetail = async (resourceURI) => {
+//   try {
+//     const { data } = await axios.get(
+//       `${resourceURI}?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`
+//     );
+//     const photoCharacter = data.data.results[0].thumbnail;
+//     const linkPhoto = `${photoCharacter.path}.${photoCharacter.extension}`;
+//     return linkPhoto;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// const d = (img, name) => {
+// return ` <li ><img src="${img}" alt="Characters" /> <p>${name}</p>
+//    </li>`;
+// };
+// const handelAddCharacters = (data) => {
+//   const info = data.items
+//     .map(
+//       ({ name, resourceURI }) => {
+//         return ` <li ><img src="${resourceURI}" alt="Characters" /> <p>${name}</p>
+//      </li>`;
+//       }
+//       // handelGetDetail(resourceURI).then((img) => {
+//       //   return { img, name };
+//       // })
+//     )
+//     .join("");
+//   return info;
+// };
+
 const handelAddCharacters = (data) => {
-  const info = data.items.map(({ name, resourceURI }) =>
-    handelGetDetail(resourceURI).then((img) => {
-      return { img, name };
+  const info = data.items
+    .map(({ name, resourceURI }) => {
+      return ` <li ><img src="${resourceURI}" alt="Characters" /> <p>${name}</p>
+     </li>`;
     })
-  );
+    .join("");
   return info;
 };
 

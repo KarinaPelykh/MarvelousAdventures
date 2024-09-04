@@ -63,6 +63,8 @@ const handelGetComics = async (title) => {
     const { data } = await axios.get(
       `${BASE_URL}/v1/public/comics?titleStartsWith=${title}&apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}&limit=4`
     );
+    console.log(data);
+
     return data;
   } catch (error) {
     console.log(error);
@@ -80,25 +82,33 @@ const renderListComics = (comics) => {
     newListComic.appendChild(item);
   });
 };
+
 const getTitle = (e) => {
   e.preventDefault();
   const title = e.target.elements.input.value;
   if (title) {
-    handelGetComics(title).then((data) => {
-      const amount = data.data.results.length > 0;
-      if (amount) {
-        renderListComics(data.data.results);
-        newListComic.style.display = "flex";
-        newListComic.style.flexDirection = "column";
-      } else {
-        newListComic.innerHTML = "<li class=new-comic-item >Nothing found</li>";
-      }
-    });
+    handelGEtResultSearches(title);
   }
+};
+
+const handelGEtResultSearches = (title) => {
+  console.log(title);
+
+  handelGetComics(title).then((data) => {
+    const amount = data.data.results.length > 0;
+    if (amount) {
+      renderListComics(data.data.results);
+      newListComic.style.display = "flex";
+      newListComic.style.flexDirection = "column";
+    } else {
+      newListComic.innerHTML = "<li class=new-comic-item >Nothing found</li>";
+    }
+  });
 };
 
 newListComic.addEventListener("click", (e) => {
   const title = e.target.textContent;
+
   const userSelected = JSON.stringify(title);
   localStorage.setItem(comics, userSelected);
   window.location.replace("../page-comics.html");
