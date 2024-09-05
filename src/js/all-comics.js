@@ -1,6 +1,7 @@
 import axios from "axios";
 import CryptoJS from "crypto-js";
 import getData from "./modal";
+import handelFilterAllComics from "./filter";
 
 const API_KEY_PRIVATE = "86167992f51495ba975666074c2de2488a64fb00";
 const API_KEY_PUBLIC = "7f8ef27ce3f21548c1d09757433025a4";
@@ -33,11 +34,12 @@ const handelApiComics = () => {
 };
 
 export default handelApiComics;
+
 const handelGetAllComics = async () => {
   try {
     const url = handelApiComics();
     const { data } = await axios.get(url);
-    console.log(data);
+    console.log(data.data.total);
 
     return data;
   } catch (error) {
@@ -80,9 +82,11 @@ const handelRenderComics = (data) => {
     sectionDefault.style.display = "flex";
   }
 };
-
 handelGetAllComics().then((data) => {
   handelRenderComics(data);
+});
+handelFilterAllComics().then((data) => {
+  console.log(data);
 });
 
 const handelResize = () => {

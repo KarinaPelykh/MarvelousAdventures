@@ -3,7 +3,14 @@
     <form class="form-filter">
       <label class="label"
         >Title Starts With
-        <input type="text" placeholder="Enter text" class="search-input" />
+        <input
+          name="search"
+          type="text"
+          value=""
+          placeholder="Enter text"
+          class="search-input"
+        />
+        <button type="submit">submit</button>
         <!-- <svg><use ></use></svg> -->
       </label>
       <div class="wrapper-type-comics">
@@ -11,17 +18,33 @@
           >Format
           <!-- <input type="text" class="input-filter" /> -->
 
-          <select class="input-filter"></select>
+          <select class="input-filter js-select">
+            <option>Comic</option>
+            <option>Magazine</option>
+
+            <option>Trade paperback</option>
+
+            <option>Hardcover</option>
+
+            <option>Digest</option>
+            <option>Graphic novel</option>
+
+            <option>Digital comic</option>
+            <option>Infinite comic</option>
+          </select>
         </label>
         <label class="label"
           >Order by
           <!-- <input type="text" class="input-filter" />-->
-          <select class="input-filter"></select>
+          <select class="input-filter js-by-order">
+            <option>title</option>
+            <option>onsaleDate</option>
+          </select>
         </label>
       </div>
 
       <label class="label"
-        >Start Year <input type="date" class="input-filter"
+        >Start Year <input type="date" class="input-filter js-date"
       /></label>
     </form>
   </div>
