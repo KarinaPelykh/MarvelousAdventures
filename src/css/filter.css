@@ -9,6 +9,7 @@
   }
 }
 .label {
+  position: relative;
   margin-bottom: 12px;
   margin-right: 8px;
   display: flex;
@@ -46,4 +47,27 @@
 }
 .input-filter::placeholder {
   color: #fafafa;
+}
+.select-format {
+  border: 2px #34387f solid;
+  background-color: #171717;
+  border-radius: 20px;
+  padding: 14px 24px;
+  width: 143px;
+  outline: none;
+  margin-top: 8px;
+  color: #fafafa;
+}
+
+.button-filer {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  cursor: pointer;
+}
+.button-filer svg {
+  width: 18px;
+  height: 18px;
 }

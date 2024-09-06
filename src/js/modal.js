@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import CryptoJS from "crypto-js";
 import axios from "axios";
+import { handelSliderModal } from "./slider-modal";
 const API_KEY_PRIVATE = "86167992f51495ba975666074c2de2488a64fb00";
 const API_KEY_PUBLIC = "7f8ef27ce3f21548c1d09757433025a4";
 const TS = "karina";
@@ -24,12 +25,13 @@ const handelAddInfoHtml = ({
   const { monthAndYear, year } = formattingDate(data);
   const changesTitle = title.indexOf("#");
   const newTitle = title.slice(0, changesTitle);
+
+  const slider = handelSliderModal(imageComics);
   return `
   <button id="button" class="button-close"><svg><use href="../img/sprite.svg#close"></svg></button>
   <div class="wrapper-modal">
-  <div class="maybe-slider" >
-   
-      <ul class="modal-list-comics">${imageComics}</ul>
+  ${slider}
+
     </div>
     <div class="thumb-modal">
       <div class="daredevil">
@@ -134,7 +136,7 @@ const handelImageComics = (data) => {
   return data
     .map(({ extension, path }) => {
       const imgs = `${path}.${extension}`;
-      return `<li><img class="photo-comics" src=${imgs} alt="photo comics"/></li>`;
+      return `<div class="swiper-slide-modal"><img class="photo-comics" src=${imgs} alt="photo comics"/></div>`;
     })
     .join("");
 };

@@ -12,6 +12,12 @@ const comics = "request_user";
 const HASH = CryptoJS.MD5(TS + API_KEY_PRIVATE + API_KEY_PUBLIC).toString();
 
 const list = document.querySelector(".all-comics");
+
+const form = document.querySelector(".form-filter");
+const select = document.querySelector(".js-select");
+const inputDate = document.querySelector(".js-date");
+const byOrder = document.querySelector(".js-by-order");
+
 const sectionDefault = document.querySelector(".section-default ");
 const defaultPhoto =
   "https://image.cnbcfm.com/api/v1/image/105828186-1554212544565avengers-endgame-poster-og-social-crop.jpg?v=1555618903&w=929&h=523&vtcrop=y";
@@ -82,12 +88,6 @@ const handelRenderComics = (data) => {
     sectionDefault.style.display = "flex";
   }
 };
-handelGetAllComics().then((data) => {
-  handelRenderComics(data);
-});
-handelFilterAllComics().then((data) => {
-  console.log(data);
-});
 
 const handelResize = () => {
   if (window.innerWidth <= 335) {
@@ -126,3 +126,55 @@ const handelItemComics = (e) => {
 
 list.addEventListener("click", handelItemComics);
 window.addEventListener("resize", handelResize);
+
+//filter
+
+// filterDate.addEventListener("change", () => {
+//   const currentDate = filterDate.value.split();
+//   const changeInRow = currentDate.reverse().join("");
+//   const replaceSymbolInDate = changeInRow.replaceAll("-", "/");
+//   console.log(replaceSymbolInDate);
+//   filterDate.value = replaceSymbolInDate;
+//   console.log(filterDate.value);
+// });
+
+const handelFilterComics = (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const searchComics = form.elements.search.value.toLowerCase().trim();
+  const valueSelect = select.value;
+  const selectByOrder = byOrder.value
+    .toLowerCase()
+    .replaceAll(" ", "")
+    .replace("d", "D");
+  const date = inputDate.value;
+  const params = {
+    searchComics,
+    valueSelect,
+    selectByOrder,
+    date,
+  };
+
+  handelIsGetData(params);
+};
+
+const handelIsGetData = (params) => {
+  handelFilterAllComics(params).then((data) => {
+    console.log(data);
+
+    if (data) {
+      handelRenderComics(data);
+    } else {
+      handelGetAllComics().then((data) => {
+        handelRenderComics(data);
+      });
+    }
+  });
+};
+form.addEventListener("submit", handelFilterComics);
+select.addEventListener("chang", handelFilterComics);
+byOrder.addEventListener("chang", handelFilterComics);
+
+handelGetAllComics().then((data) => {
+  handelRenderComics(data);
+});

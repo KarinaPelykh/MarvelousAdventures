@@ -73,3 +73,7 @@ img {
 .is-active {
   background-color: #34387f !important;
 }
+
+button {
+  cursor: pointer;
+}
