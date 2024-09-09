@@ -1,11 +1,14 @@
-/* slider modal */
 .maybe-slider {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-
+/* .slider {
+  width: 100%;
+  height: 100%;
+} */
 .swiper-wrapper {
+  width: 330px;
   display: flex;
   flex-direction: row;
   margin-bottom: 8px;
@@ -17,10 +20,14 @@
   margin-left: auto;
   margin-right: auto;
 }
+.thumbsSlider {
+  width: 325px;
+}
 
-.thumbsSlider .swiper-slide-modal {
-  width: 25%;
-  height: 100%;
+.thumbsSlider .swiper-slide {
+  height: 80px;
+  width: 80px;
+  display: flex;
   opacity: 0.4;
 }
 .swiper-wrapper-thumb {
@@ -28,16 +35,51 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.swiper-wrapper-thumb .swiper-slide-modal {
+.swiper-wrapper-thumb .swiper-slide {
   margin-right: 8px;
+  margin-bottom: 8px;
 }
-.swiper-wrapper-thumb .swiper-slide-modal img {
+
+.swiper-wrapper-thumb .swiper-slide:last-child {
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+/* .swiper-wrapper-thumb .swiper-slide img {
   display: block;
   width: 80px;
   border-radius: 8px;
   height: 80px;
   object-fit: cover;
-}
-.mySwiper .swiper-slide-thumb-active {
+} */
+.thumbsSlider .swiper-slide-thumb-active {
   opacity: 1;
 }
+
+/* .swiper {
+  width: 100%;
+}
+
+.mySwiper2 {
+  width: 100%;
+}
+
+.mySwiper {
+  height: 30%;
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+.mySwiper .swiper-slide {
+  opacity: 0.4;
+}
+
+.swiper-slide {
+  background-position: center;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+} */

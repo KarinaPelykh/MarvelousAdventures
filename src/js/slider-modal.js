@@ -1,21 +1,19 @@
-export const handelSliderModal = (imageComics) => {
-  return `<div class="maybe-slider" >
-    <div
+export const handelInitializationThumbModal = () => {
+  let swiper = new Swiper(".thumbsSlider", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+  });
 
-      class=" mySwiper"
-    >
-      <div class="swiper-wrapper">
-
-        ${imageComics}
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-    <div thumbsSlider="" class="thumbsSlider">
-      <div class="swiper-wrapper-thumb">
-         ${imageComics}
-
-      </div>
-
-    </div> `;
+  let swiper2 = new Swiper(".mySwiper", {
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+      swiper: swiper,
+    },
+  });
 };

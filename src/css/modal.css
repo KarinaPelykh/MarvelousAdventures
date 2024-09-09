@@ -266,3 +266,15 @@
     margin-bottom: 32px;
   }
 }
+
+.characters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.characters > li {
+  margin-bottom: 16px;
+
+  flex-basis: calc(100% / 3);
+}

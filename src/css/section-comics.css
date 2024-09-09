@@ -19,11 +19,12 @@
   }
 }
 .comics {
-  width: 100%;
   margin-top: 64px;
+  /* width: 100%;
+ 
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
 }
 /* .swiper {
   width: 1376px !important;
@@ -31,17 +32,17 @@
 }*/
 
 @media screen and (min-width: 1440px) {
-  .swiper-slide {
+  /* .swiper-slide {
     width: 448px !important;
     height: 558px;
-  }
+  } */
 }
 @media screen and (min-width: 767px) {
   .comics {
-    margin-top: 64px;
+    /* margin-top: 64px;
     width: 1280px;
 
-    justify-content: center;
+    justify-content: center; */
   }
 }
 
@@ -53,8 +54,6 @@
 }
 
 .img-comics {
-  /* width: 323px;
-  height: 374px; */
   margin-bottom: 14px;
   border-radius: 8px;
 }

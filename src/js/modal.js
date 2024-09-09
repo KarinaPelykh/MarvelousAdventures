@@ -1,7 +1,8 @@
 import { format } from "date-fns";
 import CryptoJS from "crypto-js";
 import axios from "axios";
-import { handelSliderModal } from "./slider-modal";
+import { handelSliderModal } from "./modal-slider";
+import { handelInitializationThumbModal } from "./slider-modal";
 const API_KEY_PRIVATE = "86167992f51495ba975666074c2de2488a64fb00";
 const API_KEY_PUBLIC = "7f8ef27ce3f21548c1d09757433025a4";
 const TS = "karina";
@@ -124,7 +125,9 @@ const getData = (data) => {
       });
     }
   );
+
   modal.innerHTML = modalHtml.join("");
+  handelInitializationThumbModal();
   const button = document.getElementById("button");
   button.addEventListener("click", () => {
     modalWindow.classList.toggle("is-modal-open");
@@ -136,7 +139,7 @@ const handelImageComics = (data) => {
   return data
     .map(({ extension, path }) => {
       const imgs = `${path}.${extension}`;
-      return `<div class="swiper-slide-modal"><img class="photo-comics" src=${imgs} alt="photo comics"/></div>`;
+      return `<div class="swiper-slide"><img class="photo-comics" src=${imgs} alt="photo comics"/></div>`;
     })
     .join("");
 };
@@ -148,37 +151,6 @@ const handelMapCreators = (data) => {
     }
   });
 };
-
-// const handelGetDetail = async (resourceURI) => {
-//   try {
-//     const { data } = await axios.get(
-//       `${resourceURI}?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`
-//     );
-//     const photoCharacter = data.data.results[0].thumbnail;
-//     const linkPhoto = `${photoCharacter.path}.${photoCharacter.extension}`;
-//     return linkPhoto;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// const d = (img, name) => {
-// return ` <li ><img src="${img}" alt="Characters" /> <p>${name}</p>
-//    </li>`;
-// };
-// const handelAddCharacters = (data) => {
-//   const info = data.items
-//     .map(
-//       ({ name, resourceURI }) => {
-//         return ` <li ><img src="${resourceURI}" alt="Characters" /> <p>${name}</p>
-//      </li>`;
-//       }
-//       // handelGetDetail(resourceURI).then((img) => {
-//       //   return { img, name };
-//       // })
-//     )
-//     .join("");
-//   return info;
-// };
 
 const handelAddCharacters = (data) => {
   const info = data.items
@@ -213,3 +185,33 @@ const handleCloseModalEscape = (e) => {
 modalWindow.addEventListener("click", handleCloseModal);
 document.addEventListener("keydown", handleCloseModalEscape);
 export default getData;
+// const handelGetDetail = async (resourceURI) => {
+//   try {
+//     const { data } = await axios.get(
+//       `${resourceURI}?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`
+//     );
+//     const photoCharacter = data.data.results[0].thumbnail;
+//     const linkPhoto = `${photoCharacter.path}.${photoCharacter.extension}`;
+//     return linkPhoto;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// const d = (img, name) => {
+// return ` <li ><img src="${img}" alt="Characters" /> <p>${name}</p>
+//    </li>`;
+// };
+// const handelAddCharacters = (data) => {
+//   const info = data.items
+//     .map(
+//       ({ name, resourceURI }) => {
+//         return ` <li ><img src="${resourceURI}" alt="Characters" /> <p>${name}</p>
+//      </li>`;
+//       }
+//       // handelGetDetail(resourceURI).then((img) => {
+//       //   return { img, name };
+//       // })
+//     )
+//     .join("");
+//   return info;
+// };
