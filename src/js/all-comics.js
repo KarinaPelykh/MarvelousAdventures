@@ -1,59 +1,39 @@
-import axios from "axios";
-import CryptoJS from "crypto-js";
 import getData from "./modal";
-import handelFilterAllComics from "./filter";
+import {
+  getInformationAboutComics,
+  handelGetAllComics,
+  handelFilterAllComics,
+} from "./Api";
 
-const API_KEY_PRIVATE = "86167992f51495ba975666074c2de2488a64fb00";
-const API_KEY_PUBLIC = "7f8ef27ce3f21548c1d09757433025a4";
-const BASE_URL = "https://gateway.marvel.com:443";
-const TS = "karina";
 let limit = 5;
-const comics = "request_user";
-const HASH = CryptoJS.MD5(TS + API_KEY_PRIVATE + API_KEY_PUBLIC).toString();
 
 const list = document.querySelector(".all-comics");
-
+const loader = document.querySelector(".loader-container");
 const form = document.querySelector(".form-filter");
 const select = document.querySelector(".js-select");
 const inputDate = document.querySelector(".js-date");
 const byOrder = document.querySelector(".js-by-order");
-
 const sectionDefault = document.querySelector(".section-default ");
+const body = document.querySelector("body");
 const defaultPhoto =
   "https://image.cnbcfm.com/api/v1/image/105828186-1554212544565avengers-endgame-poster-og-social-crop.jpg?v=1555618903&w=929&h=523&vtcrop=y";
 
-const handelApiComics = () => {
-  const searchRequestUser = localStorage.getItem(comics);
-  if (searchRequestUser) {
-    const parsedUserRequest = JSON.parse(searchRequestUser);
-    const madeArray = parsedUserRequest.split("");
-    const changedTitle = madeArray
-      .splice(0, parsedUserRequest.indexOf("("))
-      .join("");
-    console.log(changedTitle);
-    if (changedTitle) {
-      return `${BASE_URL}/v1/public/comics?title=${changedTitle}&apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`;
-    }
-  } else {
-    return `${BASE_URL}/v1/public/comics?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}&limit=${limit}`;
-  }
+const handelRenderItemComics = (results) => {
+  const comics = results
+    .map(({ id, title, name, images }) => {
+      const newTitle = title.slice(0, title.indexOf("#"));
+
+      return handelCardComics({ newTitle, images, id, name });
+    })
+    .join("");
+
+  list.innerHTML = comics;
 };
 
-export default handelApiComics;
-
-const handelGetAllComics = async () => {
-  try {
-    const url = handelApiComics();
-    const { data } = await axios.get(url);
-    console.log(data.data.total);
-
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const html = ({ newTitle, imgUrl, id, name }) => {
+const handelCardComics = ({ newTitle, images, id, name }) => {
+  const imgUrl = images[0]?.path
+    ? `${images[0]?.path}.${images[0]?.extension}`
+    : defaultPhoto;
   return ` <li id=${id}     class="comic-list-item">
                  <img class="all-img-comics" src=${imgUrl} alt="marvel hero"/>
                   <div class="">
@@ -64,31 +44,15 @@ const html = ({ newTitle, imgUrl, id, name }) => {
        `;
 };
 
-const handelMakeItemComics = (results) => {
-  const comics = results
-    .map(({ id, title, name, images }) => {
-      const imgUrl = images[0]?.path
-        ? `${images[0]?.path}.${images[0]?.extension}`
-        : defaultPhoto;
-      const changesTitle = title.indexOf("#");
-      const newTitle = title.slice(0, changesTitle);
-
-      return html({ newTitle, imgUrl, id, name });
-    })
-    .join("");
-
-  list.innerHTML = comics;
-};
-
 const handelRenderComics = (data) => {
   const { results } = data.data;
   if (results.length > 0) {
-    handelMakeItemComics(results);
+    handelRenderItemComics(results);
   } else {
     sectionDefault.style.display = "flex";
   }
 };
-
+// function witch reply for limit
 const handelResize = () => {
   if (window.innerWidth <= 335) {
     limit = 5;
@@ -97,31 +61,40 @@ const handelResize = () => {
   } else if (window.innerWidth >= 1440) {
     limit = 16;
   }
-  handelGetAllComics().then((data) => {
-    handelRenderComics(data);
-  });
-};
 
-const getInformationAboutComics = async (comicId) => {
-  try {
-    const { data } = await axios.get(
-      `${BASE_URL}/v1/public/comics/${comicId}?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`
+  //show some  comics  in depending on limit
+  handelGetAllComics(limit)
+    .then((data) => {
+      handelRenderComics(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(
+      setTimeout(() => {
+        loader.classList.add("invisible"), 1500;
+      })
     );
-
-    getData(data);
-    const modal = document.querySelector(".modal-window");
-    modal.classList.toggle("is-modal-open");
-    const IsOpen = modal.classList.contains("is-modal-open");
-    body.style.overflow = "auto";
-    if (IsOpen) {
-      body.style.overflow = "hidden";
-    }
-  } catch (error) {}
 };
 
 const handelItemComics = (e) => {
   const item = e.target.closest(".comic-list-item");
-  getInformationAboutComics(item.id);
+  getInformationAboutComics(item.id)
+    .then((data) => {
+      console.log(data);
+
+      getData(data);
+      const modal = document.querySelector(".modal-window");
+      modal.classList.toggle("is-modal-open");
+      const IsOpen = modal.classList.contains("is-modal-open");
+      body.style.overflow = "auto";
+      if (IsOpen) {
+        body.style.overflow = "hidden";
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 list.addEventListener("click", handelItemComics);
@@ -129,52 +102,81 @@ window.addEventListener("resize", handelResize);
 
 //filter
 
-// filterDate.addEventListener("change", () => {
-//   const currentDate = filterDate.value.split();
-//   const changeInRow = currentDate.reverse().join("");
-//   const replaceSymbolInDate = changeInRow.replaceAll("-", "/");
-//   console.log(replaceSymbolInDate);
-//   filterDate.value = replaceSymbolInDate;
-//   console.log(filterDate.value);
-// });
-
 const handelFilterComics = (e) => {
   e.preventDefault();
   const form = e.target;
+
   const searchComics = form.elements.search.value.toLowerCase().trim();
-  const valueSelect = select.value;
-  const selectByOrder = byOrder.value
-    .toLowerCase()
-    .replaceAll(" ", "")
-    .replace("d", "D");
-  const date = inputDate.value;
+  const valueSelect = handelSelectFormat();
+  const selectByOrder = handelSelectByOrder();
+  const formatDate = handelSelectStarYear();
   const params = {
     searchComics,
     valueSelect,
     selectByOrder,
-    date,
+    formatDate,
   };
-
   handelIsGetData(params);
+  form.reset();
+};
+
+const handelSelectFormat = () => {
+  return select.value.toLowerCase();
+};
+
+const handelSelectByOrder = () => {
+  return byOrder.value.toLowerCase().replaceAll(" ", "").replace("d", "D");
+};
+
+const handelSelectStarYear = () => {
+  const date = inputDate.value;
+  return date.slice(0, date.indexOf("-"));
 };
 
 const handelIsGetData = (params) => {
-  handelFilterAllComics(params).then((data) => {
-    console.log(data);
+  console.log(params);
 
-    if (data) {
-      handelRenderComics(data);
-    } else {
-      handelGetAllComics().then((data) => {
+  loader.classList.remove("invisible");
+  body.style.overflow = "hidden";
+  handelFilterAllComics(params)
+    .then((data) => {
+      console.log(data);
+
+      if (data) {
         handelRenderComics(data);
-      });
-    }
-  });
+      } else {
+        handelGetAllComics().then((data) => {
+          handelRenderComics(data);
+        });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      setTimeout(() => {
+        body.style.overflow = "auto";
+        loader.classList.add("invisible");
+      }, 1500);
+    });
 };
-form.addEventListener("submit", handelFilterComics);
-select.addEventListener("chang", handelFilterComics);
-byOrder.addEventListener("chang", handelFilterComics);
 
-handelGetAllComics().then((data) => {
-  handelRenderComics(data);
-});
+form.addEventListener("submit", handelFilterComics);
+
+loader.classList.remove("invisible");
+body.style.overflow = "hidden";
+
+//show all comics on visit first page
+handelGetAllComics()
+  .then((data) => {
+    handelRenderComics(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    setTimeout(() => {
+      loader.classList.add("invisible");
+      body.style.overflow = "auto";
+    }, 1500);
+  });

@@ -10,7 +10,6 @@
 }
 .label {
   position: relative;
-  margin-bottom: 12px;
   margin-right: 8px;
   display: flex;
   flex-direction: column;
@@ -19,6 +18,9 @@
   line-height: 14px;
   color: #fafafa48;
 }
+.label:last-child {
+  margin-right: 0px;
+}
 .search-input {
   background-color: #34387f;
   border: 1px #24265a solid;
@@ -26,6 +28,7 @@
   padding: 14px 24px;
   outline: none;
   margin-top: 8px;
+  color: #fafafa;
 }
 .search-input::placeholder {
   color: #fafafa;
@@ -44,6 +47,7 @@
   width: 143px;
   outline: none;
   margin-top: 8px;
+  color: #fafafa;
 }
 .input-filter::placeholder {
   color: #fafafa;
@@ -70,4 +74,10 @@
 .button-filer svg {
   width: 18px;
   height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .js-date {
+    margin-left: 8px;
+  }
 }

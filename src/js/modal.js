@@ -1,13 +1,7 @@
 import { format } from "date-fns";
-import CryptoJS from "crypto-js";
-import axios from "axios";
-import { handelSliderModal } from "./modal-slider";
+import { handelModal } from "./modalMarking";
 import { handelInitializationThumbModal } from "./slider-modal";
-const API_KEY_PRIVATE = "86167992f51495ba975666074c2de2488a64fb00";
-const API_KEY_PUBLIC = "7f8ef27ce3f21548c1d09757433025a4";
-const TS = "karina";
 
-const HASH = CryptoJS.MD5(TS + API_KEY_PRIVATE + API_KEY_PUBLIC).toString();
 const modal = document.querySelector(".overlay");
 const modalWindow = document.querySelector(".modal-window");
 const body = document.querySelector("body");
@@ -27,64 +21,22 @@ const handelAddInfoHtml = ({
   const changesTitle = title.indexOf("#");
   const newTitle = title.slice(0, changesTitle);
 
-  const slider = handelSliderModal(imageComics);
+  const infoForModal = {
+    imageComics,
+    newTitle,
+    name,
+    monthAndYear,
+    description,
+    format,
+    year,
+    pageCount,
+    price,
+    imgCreators,
+    character,
+  };
+  const markingModal = handelModal(infoForModal);
   return `
-  <button id="button" class="button-close"><svg><use href="../img/sprite.svg#close"></svg></button>
-  <div class="wrapper-modal">
-  ${slider}
-
-    </div>
-    <div class="thumb-modal">
-      <div class="daredevil">
-        <div class="info-comics">
-          <h3 class="comics-caption">${newTitle}</h3>
-           <p class="name-date">${name[0].name} | ${monthAndYear}</p>
-        </div>
-        <p class="comics-descriptions">${description}</p>
-     
-      <ul class="list-info-comics">
-      <li>
-      <p class="text-inf">FORMAT
-      </p>
-      <p class="text-item">${format}</p>
-      </li>
-       <li>
-      <p   class="text-inf">YEAR RELEASED 
-      </p>
-      <p class="text-item">${year}</p>
-      </li>
-       <li>
-      <p  class="text-inf">PAGES
-      </p>
-      <p class="text-item">${pageCount}</p>
-      </li>
-       <li>
-      <p  class="text-inf">PRICE
-      </p>
-      <p class="text-item">&#36;${price}</p>
-      </li>
-      
-      </ul>
-      </div>
-      <div class="info-creators">
-          <h3 class="creators-title">Creators</h3>
-          <div class="creators">
-            <img class="images-creators" src=${imgCreators} alt="Creators" />
-            <div class="thumb-role">
-              <p class="role">${name[0].role}</p>
-              <p class="name-writer">${name[0].name}</p>
-            </div>
-          </div>
-      </div>
-        <div >
-          <h3 class="title-characters">Characters</h3>
-          <ul class="characters">
-              ${character}
-          </ul>
-        </div>
-    </div>
-  </div>
-    
+ ${markingModal}
   `;
 };
 const handelScroll = () => {
@@ -110,7 +62,6 @@ const getData = (data) => {
       const price = prices.length > 0 ? prices[0].price : "$0.00";
       const imageComics = handelImageComics(images);
       const character = handelAddCharacters(characters);
-      console.log(character);
 
       return handelAddInfoHtml({
         title,
@@ -185,6 +136,7 @@ const handleCloseModalEscape = (e) => {
 modalWindow.addEventListener("click", handleCloseModal);
 document.addEventListener("keydown", handleCloseModalEscape);
 export default getData;
+
 // const handelGetDetail = async (resourceURI) => {
 //   try {
 //     const { data } = await axios.get(
@@ -215,3 +167,59 @@ export default getData;
 //     .join("");
 //   return info;
 // };
+
+//  <button id="button" class="button-close"><svg><use href="../img/sprite.svg#close"></svg></button>
+//   <div class="wrapper-modal">
+//   ${slider}
+
+//     </div>
+//     <div class="thumb-modal">
+//       <div class="daredevil">
+//         <div class="info-comics">
+//           <h3 class="comics-caption">${newTitle}</h3>
+//            <p class="name-date">${name[0].name} | ${monthAndYear}</p>
+//         </div>
+//         <p class="comics-descriptions">${description}</p>
+
+//       <ul class="list-info-comics">
+//       <li>
+//       <p class="text-inf">FORMAT
+//       </p>
+//       <p class="text-item">${format}</p>
+//       </li>
+//        <li>
+//       <p   class="text-inf">YEAR RELEASED
+//       </p>
+//       <p class="text-item">${year}</p>
+//       </li>
+//        <li>
+//       <p  class="text-inf">PAGES
+//       </p>
+//       <p class="text-item">${pageCount}</p>
+//       </li>
+//        <li>
+//       <p  class="text-inf">PRICE
+//       </p>
+//       <p class="text-item">&#36;${price}</p>
+//       </li>
+
+//       </ul>
+//       </div>
+//       <div class="info-creators">
+//           <h3 class="creators-title">Creators</h3>
+//           <div class="creators">
+//             <img class="images-creators" src=${imgCreators} alt="Creators" />
+//             <div class="thumb-role">
+//               <p class="role">${name[0].role}</p>
+//               <p class="name-writer">${name[0].name}</p>
+//             </div>
+//           </div>
+//       </div>
+//         <div >
+//           <h3 class="title-characters">Characters</h3>
+//           <ul class="characters">
+//               ${character}
+//           </ul>
+//         </div>
+//     </div>
+//   </div>

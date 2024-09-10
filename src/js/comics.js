@@ -1,34 +1,19 @@
-import axios from "axios";
-import CryptoJS from "crypto-js";
 import getData from "./modal.js";
 import { handelMakeSlider } from "./sliderInicializacion.js";
+import { fetchAuthorization, getInformationAboutComics } from "./Api.js";
 const body = document.querySelector("body");
 const list = document.querySelector(".js-comics");
-const API_KEY_PRIVATE = "86167992f51495ba975666074c2de2488a64fb00";
-const API_KEY_PUBLIC = "7f8ef27ce3f21548c1d09757433025a4";
-const BASE_URL = "https://gateway.marvel.com:443";
-const TS = "karina";
 
-const HASH = CryptoJS.MD5(TS + API_KEY_PRIVATE + API_KEY_PUBLIC).toString();
-const url = `${BASE_URL}/v1/public/comics?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`;
 const limit = 6;
 
-const fetchAuthorization = async () => {
-  try {
-    const { data } = await axios.get(
-      `${url}&limit=${limit}&dateDescriptor=lastWeek`
-    );
-    console.log(data);
-
+fetchAuthorization(limit)
+  .then((data) => {
     const { results } = data.data;
-
     handelAddHtml(results);
-  } catch (error) {
+  })
+  .catch((error) => {
     console.log(error);
-  }
-};
-
-fetchAuthorization();
+  });
 
 const defaultPhoto =
   "https://image.cnbcfm.com/api/v1/image/105828186-1554212544565avengers-endgame-poster-og-social-crop.jpg?v=1555618903&w=929&h=523&vtcrop=y";
@@ -64,23 +49,20 @@ const handelAddHtml = (results) => {
   handelMakeSlider(sliderElement);
 };
 
-const getInformationAboutComics = async (comicId) => {
-  try {
-    const { data } = await axios.get(
-      `${BASE_URL}/v1/public/comics/${comicId}?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`
-    );
-
-    getData(data);
-    const modal = document.querySelector(".modal-window");
-    modal.classList.toggle("is-modal-open");
-    const IsOpen = modal.classList.contains("is-modal-open");
-    body.style.overflow = "auto";
-    if (IsOpen) {
-      body.style.overflow = "hidden";
-    }
-  } catch (error) {}
-};
 const handelGetIdInfo = (e) => {
   const item = e.target.closest(".item-comics");
-  getInformationAboutComics(item.id);
+  getInformationAboutComics(item.id)
+    .then((data) => {
+      getData(data);
+      const modal = document.querySelector(".modal-window");
+      modal.classList.toggle("is-modal-open");
+      const IsOpen = modal.classList.contains("is-modal-open");
+      body.style.overflow = "auto";
+      if (IsOpen) {
+        body.style.overflow = "hidden";
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };

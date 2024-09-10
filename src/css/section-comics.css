@@ -3,7 +3,7 @@
 }
 @media screen and (min-width: 1440px) {
   .section-comics {
-    margin-top: 128px;
+    margin-top: 228px;
   }
 }
 .sub-title {
@@ -16,33 +16,7 @@
   .sub-title {
     font-size: 44px;
     font-weight: 500;
-  }
-}
-.comics {
-  margin-top: 64px;
-  /* width: 100%;
- 
-  display: flex;
-  justify-content: space-between;
-  align-items: center; */
-}
-/* .swiper {
-  width: 1376px !important;
-  height: 585px !important;
-}*/
-
-@media screen and (min-width: 1440px) {
-  /* .swiper-slide {
-    width: 448px !important;
-    height: 558px;
-  } */
-}
-@media screen and (min-width: 767px) {
-  .comics {
-    /* margin-top: 64px;
-    width: 1280px;
-
-    justify-content: center; */
+    margin-bottom: 64px;
   }
 }
 

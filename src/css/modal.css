@@ -28,6 +28,7 @@
     width: 1000px;
     padding: 64px 32px;
     border-radius: 8px;
+    display: flex;
   }
 }
 
@@ -75,22 +76,11 @@
   height: auto;
   border-radius: 8px;
 }
-/* @media screen and (min-width: 335px) {
-  .photo-comics {
-    width: 295px;
-    height: 387px;
-  }
-} */
+
 @media screen and (min-width: 767px) {
   .photo-comics {
     width: 332px;
     height: 445px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .wrapper-modal {
-    display: flex;
   }
 }
 
@@ -100,6 +90,7 @@
   background-color: #171717;
   border-radius: 8px;
   padding: 32px 16px;
+  /* min-height: 50vh; */
 }
 @media screen and (min-width: 1440px) {
   .thumb-modal {
@@ -107,8 +98,6 @@
   }
 }
 
-.daredevil {
-}
 .info-comics {
   margin-bottom: 16px;
 }
@@ -185,8 +174,6 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 18px;
-}
-.info-creators {
 }
 
 /* repit */
@@ -270,11 +257,15 @@
 .characters {
   display: flex;
   align-items: center;
+  justify-content: start;
   flex-wrap: wrap;
 }
 
 .characters > li {
   margin-bottom: 16px;
-
   flex-basis: calc(100% / 3);
+}
+.characters > li:last-child {
+  margin-bottom: 0px;
+  margin-right: 0px;
 }
