@@ -15,6 +15,8 @@
   background-color: #000;
   max-height: 100vh;
   overflow-y: auto;
+
+  overflow-x: hidden;
   padding: 40px 20px;
 }
 @media screen and (min-width: 768px) {
@@ -90,12 +92,30 @@
   background-color: #171717;
   border-radius: 8px;
   padding: 32px 16px;
-  /* min-height: 50vh; */
 }
 @media screen and (min-width: 1440px) {
   .thumb-modal {
-    width: 588px;
+    min-width: 588px;
+    min-height: 800px;
   }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fcfcfc;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
 
 .info-comics {

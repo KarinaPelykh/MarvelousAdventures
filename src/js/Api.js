@@ -22,7 +22,7 @@ export const fetchAuthorization = async (limit = 6) => {
 fetchAuthorization();
 
 /// url the first for all comics the second for search user
-export const handelApiComics = (limit = 5) => {
+export const handelApiComics = (limit = 5, offset) => {
   const searchRequestUser = localStorage.getItem(comics);
   if (searchRequestUser) {
     const parsedUserRequest = JSON.parse(searchRequestUser);
@@ -31,14 +31,14 @@ export const handelApiComics = (limit = 5) => {
       .splice(0, parsedUserRequest.indexOf("("))
       .join("");
     if (changedTitle) {
-      return `${BASE_URL}/v1/public/comics?title=${changedTitle}&apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}`;
+      return `${BASE_URL}/v1/public/comics?title=${changedTitle}&apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}&limit=${limit}`;
     }
   } else {
-    return `${BASE_URL}/v1/public/comics?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}&limit=${limit}`;
+    return `${BASE_URL}/v1/public/comics?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}&limit=${limit}&offset=${offset}`;
   }
 };
 // request
-export const handelGetAllComics = async (limit) => {
+export const handelGetAllComics = async (limit, offset) => {
   try {
     const url = handelApiComics(limit);
     const { data } = await axios.get(url);
@@ -105,3 +105,4 @@ export const handelGetComics = async (title) => {
     console.log(error);
   }
 };
+///

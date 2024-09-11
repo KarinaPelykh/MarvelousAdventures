@@ -4,3 +4,5 @@ import "./js/modal";
 import "./js/form";
 import "./js/slider-modal";
 import "./js/modalMarking";
+import "./js/filter";
+import "./js/pagination";
