@@ -1,20 +1,66 @@
 import getData from "./modal";
 import { getInformationAboutComics, handelGetAllComics } from "./Api";
-import { handelPagination } from "./pagination";
+
+import Pagination from "tui-pagination";
+import "tui-pagination/dist/tui-pagination.css";
 
 const list = document.querySelector(".all-comics");
 const loader = document.querySelector(".loader-container");
-
+const paginationContainer = document.querySelector(".tui-pagination");
 const sectionDefault = document.querySelector(".section-default ");
 const body = document.querySelector("body");
 
 let limit = 5;
 let currentPage = 1;
-let dataInfo;
 
 const defaultPhoto =
   "https://image.cnbcfm.com/api/v1/image/105828186-1554212544565avengers-endgame-poster-og-social-crop.jpg?v=1555618903&w=929&h=523&vtcrop=y";
+// function witch reply for limit
 
+loader.classList.remove("invisible");
+body.style.overflow = "hidden";
+
+const handelResize = () => {
+  if (window.innerWidth <= 335) {
+    limit = 5;
+  } else if (window.innerWidth <= 768) {
+    limit = 8;
+  } else if (window.innerWidth >= 1440) {
+    limit = 16;
+  }
+
+  const start = (currentPage - 1) * limit;
+  // const end = start + limit;
+
+  //show some  comics  in depending on limit
+
+  handelGetAllComics(limit, start)
+    .then((data) => {
+      //list
+      handelRenderComics(data);
+      //pagination
+      handelPagination(limit, data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      setTimeout(() => {
+        loader.classList.add("invisible");
+        body.style.overflow = "auto";
+      }, 1500);
+    });
+};
+
+export const handelRenderComics = (data) => {
+  const { results } = data.data;
+
+  if (results.length > 0) {
+    handelRenderItemComics(results);
+  } else {
+    sectionDefault.style.display = "flex";
+  }
+};
 const handelRenderItemComics = (results) => {
   const comics = results
     .map(({ id, title, name, images }) => {
@@ -41,48 +87,6 @@ const handelCardComics = ({ newTitle, images, id, name }) => {
        `;
 };
 
-export const handelRenderComics = (data) => {
-  const { results } = data.data;
-
-  if (results.length > 0) {
-    handelRenderItemComics(results);
-  } else {
-    sectionDefault.style.display = "flex";
-  }
-};
-
-// function witch reply for limit
-const handelResize = () => {
-  if (window.innerWidth <= 335) {
-    limit = 5;
-  } else if (window.innerWidth <= 768) {
-    limit = 8;
-  } else if (window.innerWidth >= 1440) {
-    limit = 16;
-  }
-
-  const start = (currentPage - 1) * limit;
-  const end = start + limit;
-  // let arrPagination;
-  //show some  comics  in depending on limit
-  handelGetAllComics(limit, start)
-    .then((data) => {
-      dataInfo = data;
-      //list
-      handelRenderComics(data);
-      //pagination
-      handelPagination(limit, dataInfo);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-    .finally(
-      setTimeout(() => {
-        loader.classList.add("invisible"), 1500;
-      })
-    );
-};
-
 const handelItemComics = (e) => {
   const item = e.target.closest(".comic-list-item");
   getInformationAboutComics(item.id)
@@ -102,24 +106,38 @@ const handelItemComics = (e) => {
 };
 
 list.addEventListener("click", handelItemComics);
-window.addEventListener("resize", handelResize);
+window.addEventListener("resize", handelResize());
 
 loader.classList.remove("invisible");
 body.style.overflow = "hidden";
 
-//show all comics on visit first page
+const handelPagination = (limit, data) => {
+  const { total } = data.data;
 
-handelGetAllComics()
-  .then((data) => {
-    // show list comics
-    handelRenderComics(data);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    setTimeout(() => {
-      loader.classList.add("invisible");
-      body.style.overflow = "auto";
-    }, 1500);
+  let pagination = new Pagination(paginationContainer, {
+    totalItems: total,
+    itemsPerPage: limit,
+    visiblePages: 10,
   });
+
+  pagination.on("afterMove", function (eventData) {
+    currentPage = eventData.page;
+
+    const start = (currentPage - 1) * limit;
+
+    //initialization
+    handelGetAllComics(limit, start)
+      .then((data) => {
+        handelRenderComics(data, start, start + limit);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          loader.classList.add("invisible");
+          body.style.overflow = "auto";
+        }, 1500);
+      });
+  });
+};

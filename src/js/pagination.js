@@ -1,31 +1,33 @@
-//pagination
-const pagination = document.querySelector(".pagination");
+// //pagination
+// const pagination = document.querySelector(".pagination-comics");
 
-export const handelPagination = (limit, dataInfo) => {
-  const { results } = dataInfo.data;
-  console.log(limit, results);
+// export const handelPagination = (limit, dataInfo, start) => {
+// const { total } = dataInfo.data;
+// console.log(limit, dataInfo);
 
-  const paginationCount = Math.ceil(results.length / limit);
-  console.log(paginationCount);
+// const paginationCount = Math.ceil(total / limit);
+//   console.log(paginationCount);
 
-  const listButPagination = document.createElement("ul");
-  for (let i = 0; i < paginationCount; i++) {
-    const itemButton = handelButtonOnPagination(i + 1);
-    console.log(itemButton);
+//   const listButPagination = document.createElement("ul");
+//   listButPagination.classList.add("list-item-button");
+//   for (let i = 0; i < paginationCount; i++) {
+//     const itemButton = handelButtonOnPagination(i + 1, start);
 
-    listButPagination.appendChild(itemButton);
-  }
-  pagination.appendChild(listButPagination);
-};
+//     listButPagination.appendChild(itemButton);
+//   }
+//   pagination.innerText = "";
+//   pagination.appendChild(listButPagination);
+// };
 
-export const handelButtonOnPagination = (page) => {
-  const itemButton = document.createElement("li");
-  itemButton.innerText = page;
+// export const handelButtonOnPagination = (page, start) => {
+//   const itemButton = document.createElement("li");
 
-  itemButton.addEventListener("click", () => {
-    // currentPage = page;
-    handelPagination();
-  });
+//   itemButton.innerText = page;
 
-  return itemButton;
-};
+//   itemButton.addEventListener("click", () => {
+//     start = page;
+//     handelPagination();
+//   });
+
+//   return itemButton;
+// };

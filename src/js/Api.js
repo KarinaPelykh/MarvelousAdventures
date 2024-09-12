@@ -31,7 +31,7 @@ export const handelApiComics = (limit = 5, offset) => {
       .splice(0, parsedUserRequest.indexOf("("))
       .join("");
     if (changedTitle) {
-      return `${BASE_URL}/v1/public/comics?title=${changedTitle}&apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}&limit=${limit}`;
+      return `${BASE_URL}/v1/public/comics?title=${changedTitle}&apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}&limit=${limit}&offset=${offset}`;
     }
   } else {
     return `${BASE_URL}/v1/public/comics?apikey=${API_KEY_PUBLIC}&hash=${HASH}&ts=${TS}&limit=${limit}&offset=${offset}`;
@@ -40,8 +40,10 @@ export const handelApiComics = (limit = 5, offset) => {
 // request
 export const handelGetAllComics = async (limit, offset) => {
   try {
-    const url = handelApiComics(limit);
+    const url = handelApiComics(limit, offset);
     const { data } = await axios.get(url);
+    console.log(data);
+
     return data;
   } catch (error) {
     console.log(error);

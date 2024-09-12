@@ -57,3 +57,34 @@
   line-height: 18px;
   color: #fafafa83;
 }
+/* pagination */
+.pagination-comics {
+  width: 312px;
+}
+.list-item-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-item-button > button {
+  border: 1px solid #fafafa56;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fafafa;
+}
+.list-item-button > li {
+  border: 1px solid #fafafa56;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fafafa;
+}
