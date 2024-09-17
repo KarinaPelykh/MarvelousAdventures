@@ -58,33 +58,56 @@
   color: #fafafa83;
 }
 /* pagination */
-.pagination-comics {
-  width: 312px;
+
+.tui-first {
+  display: none !important;
 }
-.list-item-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.tui-last {
+  display: none !important;
 }
-.list-item-button > button {
-  border: 1px solid #fafafa56;
-  width: 32px;
-  height: 32px;
-  background-color: transparent;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fafafa;
+
+.tui-page-btn {
+  border: 1px solid #fafafa56 !important;
+  width: 32px !important;
+  height: 32px !important;
+  background-color: transparent !important;
+  border-radius: 4px !important;
+  margin-right: 8px !important;
+  color: #fafafa !important;
 }
-.list-item-button > li {
-  border: 1px solid #fafafa56;
-  width: 32px;
-  height: 32px;
-  background-color: transparent;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fafafa;
+.tui-page-btn:last-child {
+  margin-right: 0 !important;
+}
+.tui-pagination .tui-is-selected {
+  background-color: transparent !important;
+  border: 1px solid #34387f !important;
+}
+.tui-next {
+  margin-left: 0 !important;
+}
+.tui-pagination .tui-prev {
+  background-color: #34387f !important;
+}
+.tui-pagination .tui-next {
+  background-color: #34387f !important;
+}
+
+.tui-pagination .tui-ico-prev {
+  width: 8px;
+  height: 12px;
+  background-position: -19px 2px;
+}
+
+.tui-pagination .tui-ico-next {
+  background-position: -22px -22px !important;
+  height: 11px !important;
+}
+.tui-pagination .tui-is-disabled {
+  background: transparent !important;
+  cursor: default;
+}
+
+.tui-pagination .tui-is-disabled .tui-ico-prev {
+  background-position: -26px -10px !important;
+  height: 12px !important;
 }

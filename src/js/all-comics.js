@@ -111,6 +111,7 @@ window.addEventListener("resize", handelResize());
 loader.classList.remove("invisible");
 body.style.overflow = "hidden";
 
+// pagination
 const handelPagination = (limit, data) => {
   const { total } = data.data;
 
