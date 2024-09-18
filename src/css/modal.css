@@ -3,20 +3,21 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: none;
   justify-content: center;
   align-items: center;
   background-color: rgba(20, 20, 20, 0.6);
   z-index: 55;
 }
-.overlay {
-  position: absolute;
-  background-color: #000;
+.div {
   max-height: 100vh;
+  position: absolute;
   overflow-y: auto;
-
   overflow-x: hidden;
+}
+.overlay {
+  background-color: #000;
   padding: 40px 20px;
 }
 @media screen and (min-width: 768px) {
@@ -86,8 +87,6 @@
   }
 }
 
-.modal-list-comics {
-}
 .thumb-modal {
   background-color: #171717;
   border-radius: 8px;
@@ -96,7 +95,7 @@
 @media screen and (min-width: 1440px) {
   .thumb-modal {
     min-width: 588px;
-    min-height: 800px;
+    min-height: 514px;
   }
 }
 

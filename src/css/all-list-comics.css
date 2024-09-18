@@ -94,8 +94,8 @@
 
 .tui-pagination .tui-ico-prev {
   width: 8px;
-  height: 12px;
-  background-position: -19px 2px;
+  height: 12px !important;
+  background-position: -19px 2px !important;
 }
 
 .tui-pagination .tui-ico-next {

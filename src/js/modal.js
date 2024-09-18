@@ -104,9 +104,12 @@ const handelMapCreators = (data) => {
 };
 
 const handelAddCharacters = (data) => {
+  if (data.items.length === 0) {
+    return `<li><p>We don't have Characters,Sorry</p></li>`;
+  }
   const info = data.items
     .map(({ name, resourceURI }) => {
-      return ` <li ><img src="${resourceURI}" alt="Characters" /> <p>${name}</p>
+      return ` <li><img src="${resourceURI}" alt="Characters" /> <p>${name}</p>
      </li>`;
     })
     .join("");

@@ -78,6 +78,7 @@
   font-size: 14px;
   font-family: 500;
   text-align: end;
+  text-transform: uppercase;
 }
 
 .button-submit {
