@@ -118,7 +118,7 @@ const handelPagination = (limit, data) => {
   let pagination = new Pagination(paginationContainer, {
     totalItems: total,
     itemsPerPage: limit,
-    visiblePages: 10,
+    visiblePages: 5,
   });
 
   pagination.on("afterMove", function (eventData) {

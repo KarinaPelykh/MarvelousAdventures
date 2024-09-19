@@ -15,13 +15,12 @@ export const handelModal = ({
     return `    
   <button id="button" class="button-close"><svg><use href="../img/sprite.svg#close"></svg></button>
   <div class="wrapper-modal">
-<div class="swiper-container">
+      <div class="swiper-container">
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
            ${imageComics}
           </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+          
         </div>
         <div thumbsSlider="" class="swiper thumbsSlider">
           <div class="swiper-wrapper">
@@ -74,7 +73,7 @@ export const handelModal = ({
           </div>
       </div>
         <div >
-          <h3 class="title-characters">Characters</h3>
+          <h3 class="title-characters">Character</h3>
           <ul class="characters">
               ${character}
           </ul>

@@ -18,37 +18,45 @@
       <div class="wrapper-type-comics">
         <label class="label"
           >Format
-          <!-- <input type="text" class="input-filter" /> -->
 
-          <select class="select-format js-select">
-            <option>Comic</option>
-            <option>Magazine</option>
+          <div class="select-wrapper">
+            <select class="select-format js-select">
+              <option>Comic</option>
+              <option>Magazine</option>
 
-            <option>Trade paperback</option>
+              <option>Trade paperback</option>
 
-            <option>Hardcover</option>
+              <option>Hardcover</option>
 
-            <option>Digest</option>
-            <option>Graphic novel</option>
+              <option>Digest</option>
+              <option>Graphic novel</option>
 
-            <option>Digital comic</option>
-            <option>Infinite comic</option>
-          </select>
+              <option>Digital comic</option>
+              <option>Infinite comic</option>
+            </select>
+          </div>
         </label>
         <label class="label"
           >Order by
-          <!-- <input type="text" class="input-filter" />-->
-          <select class="select-format js-by-order">
-            <option>Title</option>
-            <option>On Sale Date</option>
-          </select>
+          <div class="select-wrapper">
+            <select class="select-format js-by-order">
+              <option>Title</option>
+              <option>On Sale Date</option>
+            </select>
+          </div>
         </label>
       </div>
 
       <label class="label"
         >Start Year
-        <input type="date" class="input-filter js-date" value="2024-09-10"
-      /></label>
+        <div class="select-wrapper">
+          <input
+            type="text"
+            class="input-filter js-date"
+            placeholder="10/09/2024"
+            id="datepicker-topright-forreal"
+          /></div
+      ></label>
     </form>
   </div>
 </section>

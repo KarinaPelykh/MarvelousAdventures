@@ -24,7 +24,18 @@
   background-repeat: no-repeat;
   background-size: 375px 461px;
   background-position: 50% 50%;
+  background-attachment: fixed;
   z-index: -1;
+}
+@media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  .background {
+    background-image: url(../img/Marvelous_Adventures_Comics/avengers-marvel_mobail@2x.webp),
+      url(../img/Marvelous_Adventures_Comics/avengers-marvel_mobile@3x.jpg),
+      url(../img/Marvelous_Adventures_Comics/avengers-marvel_mobail@2x.webp),
+      url(../img/Marvelous_Adventures_Comics/avengers-marvel_mobile@3x.webp);
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -39,6 +50,17 @@
     background-size: 580px 651px;
     background-position: top right;
   }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .background {
+      background-image: url(../img/Marvelous_Adventures_Comics/avengers-marvel_tablet@2x.jpg),
+        url(../img/Marvelous_Adventures_Comics/avengers-marvel_tablet@3x.jpg),
+        url(../img/Marvelous_Adventures_Comics/avengers-marvel_tablet@2x.webp),
+        url(../img/Marvelous_Adventures_Comics/avengers-marvel_tablet@3x.webp);
+    }
+  }
 }
 @media screen and (min-width: 1440px) {
   .background {
@@ -50,6 +72,17 @@
     background-image: url("../img/avengers-marvel\ 1.png");
     background-size: 1281px 769px;
     background-position: right top;
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .background {
+      background-image: url(../img/Marvelous_Adventures_Comics/avengers-marvel_desk@2x.jpg),
+        url(../img/Marvelous_Adventures_Comics/avengers-marvel_desk@3x.jpg),
+        url(../img/Marvelous_Adventures_Comics/avengers-marvel_desk@2x.webp),
+        url(../img/Marvelous_Adventures_Comics/avengers-marvel_desk@3x.webp);
+    }
   }
 }
 .hero-wrapper {

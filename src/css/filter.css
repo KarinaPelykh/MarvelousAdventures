@@ -10,7 +10,7 @@
 }
 .label {
   position: relative;
-  margin-right: 8px;
+  margin-bottom: 12px;
   display: flex;
   flex-direction: column;
   font-size: 12px;
@@ -18,18 +18,31 @@
   line-height: 14px;
   color: #fafafa48;
 }
+@media screen and (min-width: 768px) {
+  .label {
+    margin-right: 8px;
+  }
+}
+
 .label:last-child {
-  margin-right: 0px;
+  margin: 0px;
 }
 .search-input {
   background-color: #34387f;
   border: 1px #24265a solid;
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 14px 24px;
   outline: none;
-  margin-top: 8px;
+  margin-top: 4px;
   color: #fafafa;
 }
+
+@media screen and (min-width: 768px) {
+  .search-input {
+    margin-top: 8px;
+  }
+}
+
 .search-input::placeholder {
   color: #fafafa;
 }
@@ -46,31 +59,86 @@
   padding: 14px 24px;
   width: 143px;
   outline: none;
-  margin-top: 8px;
+  margin-top: 4px;
   color: #fafafa;
 }
+
+@media screen and (min-width: 768px) {
+  .input-filter {
+    margin-top: 8px;
+  }
+}
+
 .input-filter::placeholder {
   color: #fafafa;
 }
 .select-format {
   border: 2px #34387f solid;
   background-color: #171717;
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 14px 24px;
   width: 143px;
   outline: none;
-  margin-top: 8px;
+  margin-top: 4px;
   color: #fafafa;
+  appearance: none;
+}
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  position: absolute;
+  bottom: 10%;
+  right: 25px;
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: block;
+  background-image: url("../img/chevron-down.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+}
+.select-wrapper-top::after {
+  position: absolute;
+  bottom: 10%;
+  right: 25px;
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: block;
+  background-image: url("../img/chevron-down.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+@media screen and (min-width: 768px) {
+  .select-format {
+    margin-top: 8px;
+  }
 }
 
 .button-filer {
   background-color: transparent;
   border: none;
   position: absolute;
-  bottom: 15px;
+  bottom: 10px;
   right: 20px;
   cursor: pointer;
 }
+@media screen and (min-width: 768px) {
+  .button-filer {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    cursor: pointer;
+  }
+}
+
 .button-filer svg {
   width: 18px;
   height: 18px;
