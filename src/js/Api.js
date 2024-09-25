@@ -62,14 +62,14 @@ export const getInformationAboutComics = async (comicId) => {
     console.log(error);
   }
 };
+
 // filter
-const handelApiFilterComics = ({
-  searchComics,
-  valueSelect,
-  selectByOrder,
-  formatDate,
-}) => {
-  console.log(searchComics, valueSelect, selectByOrder, formatDate);
+const handelApiFilterComics = (
+  { searchComics, valueSelect, selectByOrder, formatDate },
+  limit,
+  offset
+) => {
+  console.log(searchComics, valueSelect, selectByOrder, formatDate, limit);
 
   return {
     titleStartsWith: searchComics,
@@ -78,13 +78,17 @@ const handelApiFilterComics = ({
     startYear: formatDate,
     apikey: API_KEY_PUBLIC,
     hash: HASH,
+    limit: limit,
+    offset: offset,
     ts: TS,
   };
 };
 
-export const handelFilterAllComics = async (searchQ) => {
+export const handelFilterAllComics = async (searchQ, limit, start) => {
+  console.log(start);
+
   try {
-    const url = handelApiFilterComics(searchQ);
+    const url = handelApiFilterComics(searchQ, limit, start);
     const { data } = await axios.get(`${BASE_URL}/v1/public/comics?`, {
       params: url,
     });

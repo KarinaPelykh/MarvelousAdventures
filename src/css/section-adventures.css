@@ -1,10 +1,10 @@
 .section {
-  margin-top: 44px;
+  padding-top: 44px;
   text-align: start;
 }
 @media screen and (min-width: 768px) {
   .section {
-    margin-top: 80px;
+    padding-top: 80px;
   }
 }
 
@@ -161,6 +161,7 @@
 .slid-hero img {
   width: 190px;
   height: 256px;
+  border-radius: 5px;
 }
 @media screen and (min-width: 768px) {
   .slid-hero img {

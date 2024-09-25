@@ -283,6 +283,14 @@
 .characters > li {
   margin-bottom: 16px;
   flex-basis: calc(100% / 3);
+  display: flex;
+  align-items: center;
+}
+.svg-characters {
+  margin-right: 8px;
+  width: 10px;
+  height: 10px;
+  fill: #fafafa;
 }
 .characters > li:last-child {
   margin-bottom: 0px;

@@ -108,8 +108,8 @@ const handelAddCharacters = (data) => {
     return `<li><p>We don't have Characters,Sorry</p></li>`;
   }
   const info = data.items
-    .map(({ name, resourceURI }) => {
-      return ` <li><img src="${resourceURI}" alt="Characters" /> <p>${name}</p>
+    .map(({ name }) => {
+      return ` <li><svg class="svg-characters" ><use href="../img/sprite.svg#character"></use></svg> <p>${name}</p>
      </li>`;
     })
     .join("");

@@ -1,9 +1,9 @@
 .section-comics {
-  margin-top: 79px;
+  padding-top: 79px;
 }
 @media screen and (min-width: 1440px) {
   .section-comics {
-    margin-top: 228px;
+    padding-top: 228px;
   }
 }
 .sub-title {

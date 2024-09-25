@@ -1,33 +1,36 @@
-// //pagination
-// const pagination = document.querySelector(".pagination-comics");
+// // pagination
+// import Pagination from "tui-pagination";
+// import "tui-pagination/dist/tui-pagination.css";
+// import { handelGetAllComics } from "./Api";
+// import { handelRenderComics } from "./all-comics";
+// const paginationContainer = document.querySelector(".tui-pagination");
+// export const handelPagination = (limit, data, currentPage) => {
+//   const { total } = data.data;
 
-// export const handelPagination = (limit, dataInfo, start) => {
-// const { total } = dataInfo.data;
-// console.log(limit, dataInfo);
-
-// const paginationCount = Math.ceil(total / limit);
-//   console.log(paginationCount);
-
-//   const listButPagination = document.createElement("ul");
-//   listButPagination.classList.add("list-item-button");
-//   for (let i = 0; i < paginationCount; i++) {
-//     const itemButton = handelButtonOnPagination(i + 1, start);
-
-//     listButPagination.appendChild(itemButton);
-//   }
-//   pagination.innerText = "";
-//   pagination.appendChild(listButPagination);
-// };
-
-// export const handelButtonOnPagination = (page, start) => {
-//   const itemButton = document.createElement("li");
-
-//   itemButton.innerText = page;
-
-//   itemButton.addEventListener("click", () => {
-//     start = page;
-//     handelPagination();
+//   let pagination = new Pagination(paginationContainer, {
+//     totalItems: total,
+//     itemsPerPage: limit,
+//     visiblePages: 5,
 //   });
 
-//   return itemButton;
+//   pagination.on("afterMove", function (eventData) {
+//     currentPage = eventData.page;
+
+//     const start = (currentPage - 1) * limit;
+
+//     //initialization
+//     handelGetAllComics(limit, start)
+//       .then((data) => {
+//         handelRenderComics(data, start, start + limit);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//     //   .finally(() => {
+//     //     setTimeout(() => {
+//     //       loader.classList.add("invisible");
+//     //       body.style.overflow = "auto";
+//     //     }, 1500);
+//     //   });
+//   });
 // };
