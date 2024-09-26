@@ -109,7 +109,7 @@ const handelAddCharacters = (data) => {
   }
   const info = data.items
     .map(({ name }) => {
-      return ` <li><svg class="svg-characters" ><use href="../img/sprite.svg#character"></use></svg> <p>${name}</p>
+      return ` <li><svg class="svg-characters" ><use href="../img/sprite.svg#characters"></use></svg> <p>${name}</p>
      </li>`;
     })
     .join("");

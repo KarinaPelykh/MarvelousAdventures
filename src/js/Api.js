@@ -42,7 +42,6 @@ export const handelGetAllComics = async (limit, offset) => {
   try {
     const url = handelApiComics(limit, offset);
     const { data } = await axios.get(url);
-    console.log(data);
 
     return data;
   } catch (error) {
@@ -69,8 +68,6 @@ const handelApiFilterComics = (
   limit,
   offset
 ) => {
-  console.log(searchComics, valueSelect, selectByOrder, formatDate, limit);
-
   return {
     titleStartsWith: searchComics,
     format: valueSelect,

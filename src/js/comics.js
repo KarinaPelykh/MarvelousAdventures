@@ -1,6 +1,7 @@
 import getData from "./modal.js";
 import { handelMakeSlider } from "./sliderInicializacion.js";
 import { fetchAuthorization, getInformationAboutComics } from "./Api.js";
+
 const body = document.querySelector("body");
 const list = document.querySelector(".js-comics");
 
@@ -18,7 +19,7 @@ fetchAuthorization(limit)
 const defaultPhoto =
   "https://image.cnbcfm.com/api/v1/image/105828186-1554212544565avengers-endgame-poster-og-social-crop.jpg?v=1555618903&w=929&h=523&vtcrop=y";
 
-const handelHtml = ({ id, title, name, imgUrl }, index) => {
+const handelHtml = ({ id, title, name, imgUrl }) => {
   const changesTitle = title.indexOf("#");
   const newTitle = title.slice(0, changesTitle);
 

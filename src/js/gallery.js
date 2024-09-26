@@ -2,11 +2,10 @@ import { marvelHero } from "../../public/data";
 const gallery = document.querySelector(".gallery");
 const pagination = document.querySelector(".pagination");
 const buttonLink = document.querySelector(".js-button");
-// const buttonPrev = document.querySelector(".js-previous");
 
 let currentIndex = 0;
 const buttons = [];
-// add html
+
 const handelAddHtml = ({ img1, img2, text, name }) => {
   return `<li class="item"  data-action=${name}>
              <div class="slid-hero">
@@ -54,7 +53,7 @@ const handelAuto = () => {
 
   handelUpdateImg();
   handelChangeColor(prevIndex);
-  handleChangeColorButton(prevIndex);
+  handleChangeColorButton();
 };
 
 setInterval(handelAuto, 3000);
@@ -66,6 +65,7 @@ const handelAddPAgination = () => {
     button.addEventListener("click", () => {
       currentIndex = index;
       handelUpdateImg();
+      handleChangeColorButton();
     });
     pagination.appendChild(button);
     buttons.push(button);
@@ -74,19 +74,19 @@ const handelAddPAgination = () => {
 handelAddPAgination();
 
 // change color button pagination slide
-const handleChangeColorButton = (prevIndex) => {
+const backgroundButton = ["#34387F", "#5B7F3C", "#600404"];
+const handleChangeColorButton = () => {
   buttons.forEach((button, index) => {
     if (index === currentIndex) {
       const background =
-        (prevIndex == 0 && "#600404") ||
-        (prevIndex == 1 && "#34387F") ||
-        (prevIndex == 2 && "#5B7F3C");
+        backgroundButton[currentIndex % backgroundButton.length];
       button.style.background = background;
     } else {
       button.style.background = "#1717174C";
     }
   });
 };
+
 // change color link and pagination
 const handelChangeColor = (prevIndex) => {
   switch (prevIndex) {

@@ -6,3 +6,5 @@ import "./js/slider-modal";
 import "./js/modalMarking";
 import "./js/filter";
 import "./js/pagination";
+import "./js/pikaday";
+import "./js/modalOnItem";

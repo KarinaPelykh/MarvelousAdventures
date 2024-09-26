@@ -1,9 +1,9 @@
-import BlackPanther from "../src/img/slider/Black-Panther.jpg";
-import BlackPanther1 from "../src/img/slider/Black-Panther-1.jpg";
-import hulk from "../src/img/slider/hulk.jpg";
-import hulk1 from "../src/img/slider/hulk-1.jpg";
-import spiderMan from "../src/img/slider/spiderman.jpg";
-import spiderMan1 from "../src/img/slider/spiderman-1.jpg";
+import BlackPanther from "../src/img/slider/Black-Panther@2x.avif";
+import BlackPanther1 from "../src/img/slider/Black-Panther-1@2x.avif";
+import hulk from "../src/img/slider/hulk@2x.avif";
+import hulk1 from "../src/img/slider/hulk-1@2x.avif";
+import spiderMan from "../src/img/slider/spiderman@2x.avif";
+import spiderMan1 from "../src/img/slider/spiderman-1@2x.avif";
 
 export const marvelHero = [
   {
