@@ -20,7 +20,7 @@
     text-align: start;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1440px) {
   .thumb {
     margin-right: 66px;
   }
@@ -90,7 +90,7 @@
 .gallery {
   margin-top: 40px;
   display: flex;
-  overflow-x: hidden;
+  overflow: hidden;
   width: 305px;
   height: auto;
 }

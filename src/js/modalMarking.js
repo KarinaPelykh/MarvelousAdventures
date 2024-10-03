@@ -13,7 +13,7 @@ export const handelModal = ({
 }) => {
   if (imageComics) {
     return `    
-  <button id="button" class="button-close"><svg><use href="../img/sprite.svg#close"></svg></button>
+  <button id="button" class="button-close"><svg><use href="img/sprite.svg#close"></svg></button>
   <div class="wrapper-modal">
       <div class="swiper-container">
         <div class="swiper mySwiper">
