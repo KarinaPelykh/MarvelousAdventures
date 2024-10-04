@@ -121,7 +121,7 @@
   background-position: right 90%;
   width: 100%;
   /* margin-right: 30px; */
-  margin-right: 10px;
+  margin-right: 15px;
 
   transition: 0.5s;
   position: relative;
@@ -138,7 +138,7 @@
     background-position: right 110%;
     background-size: 332px 300px;
     width: 100%;
-    margin-right: 0px;
+    /* margin-right: 0px; */
   }
 }
 @media screen and (min-width: 1440px) {
@@ -166,7 +166,7 @@
 @media screen and (min-width: 768px) {
   .slid-hero img {
     width: 336px;
-    height: 540px;
+    height: 539px;
     margin-top: auto;
     margin-right: 32px;
   }

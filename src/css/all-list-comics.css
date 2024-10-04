@@ -2,7 +2,6 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  justify-content: center;
 }
 @media screen and (min-width: 768px) {
   .all-comics {
@@ -37,6 +36,8 @@
 }
 
 .all-img-comics {
+  width: 290px;
+  height: 440px;
   margin-bottom: 14px;
   border-radius: 8px;
 }
