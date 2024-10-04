@@ -1,13 +1,22 @@
 .all-comics {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
+  justify-content: center;
 }
-
+@media screen and (min-width: 768px) {
+  .all-comics {
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .all-comics {
+    justify-content: flex-start;
+  }
+}
 .comic-list-item {
-  width: 323px;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -28,11 +37,10 @@
 }
 
 .all-img-comics {
-  width: 100%;
-  height: 374px;
   margin-bottom: 14px;
   border-radius: 8px;
 }
+
 @media screen and (min-width: 768px) {
   .all-img-comics {
     width: 323px;
@@ -46,7 +54,7 @@
   line-height: 18px;
   margin-bottom: 4px;
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 375px) {
   .title-comics {
     width: 323px;
   }

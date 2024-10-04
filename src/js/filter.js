@@ -30,14 +30,6 @@ const handelFilterComics = (e) => {
     selectByOrder,
     formatDate,
   };
-  console.log(
-    searchComics,
-    valueSelect,
-    selectByOrder,
-    formatDate,
-    limit,
-    start
-  );
 
   handelIsGetData(params);
   form.reset();
@@ -51,7 +43,7 @@ const handelSelectByOrder = () => {
 };
 
 const handelIsGetData = (params) => {
- handelShowLoader()
+  handelShowLoader();
 
   handelFilterAllComics(params, limit, start)
     .then((data) => {
@@ -63,7 +55,7 @@ const handelIsGetData = (params) => {
       console.log(error);
     })
     .finally(() => {
-      handelHideLoader()
+      handelHideLoader();
     });
 };
 

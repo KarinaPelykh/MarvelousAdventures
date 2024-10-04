@@ -9,4 +9,4 @@
 @import url("./filter.css");
 @import url("./section-not-found.css");
 @import url("./slider-modal.css");
-@import url("./node_modules/pikaday/css/pikaday.css");
+@import url("../../node_modules/pikaday/css/pikaday.css");

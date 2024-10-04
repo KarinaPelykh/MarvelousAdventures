@@ -13,7 +13,7 @@ export const handelPagination = (limit, data, currentPage, params) => {
   let pagination = new Pagination(paginationContainer, {
     totalItems: total,
     itemsPerPage: limit,
-    visiblePages: 5,
+    visiblePages: 4,
   });
 
   pagination.on("afterMove", function (eventData) {

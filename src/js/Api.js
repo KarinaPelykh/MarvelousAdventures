@@ -82,8 +82,6 @@ const handelApiFilterComics = (
 };
 
 export const handelFilterAllComics = async (searchQ, limit, start) => {
-  console.log(start);
-
   try {
     const url = handelApiFilterComics(searchQ, limit, start);
     const { data } = await axios.get(`${BASE_URL}/v1/public/comics?`, {
