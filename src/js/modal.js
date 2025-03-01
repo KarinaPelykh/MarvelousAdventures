@@ -46,17 +46,18 @@ const handelScroll = () => {
 const getData = (data) => {
   const { results } = data.data;
   const modalHtml = results.map(
-    ({
-      title,
-      creators,
-      pageCount,
-      description,
-      format,
-      images,
-      prices,
-      characters,
-      dates,
-    }) => {
+    (results) => {
+      const {
+        title,
+        creators,
+        pageCount,
+        description,
+        format,
+        images,
+        prices,
+        characters,
+        dates,
+      } = results;
       const name = handelMapCreators(creators);
       const data = dates.length > 0 ? dates[0].date : "-";
       const price = prices.length > 0 ? prices[0].price : "$0.00";
@@ -78,8 +79,11 @@ const getData = (data) => {
   );
 
   modal.innerHTML = modalHtml.join("");
+
   handelInitializationThumbModal();
+
   const button = document.getElementById("button");
+
   button.addEventListener("click", () => {
     modalWindow.classList.toggle("is-modal-open");
     handelScroll();
@@ -129,6 +133,7 @@ const handleCloseModal = (e) => {
     handelScroll();
   }
 };
+
 const handleCloseModalEscape = (e) => {
   const clickEscape = e.code === "Escape";
   if (clickEscape) {
@@ -137,5 +142,7 @@ const handleCloseModalEscape = (e) => {
   }
 };
 modalWindow.addEventListener("click", handleCloseModal);
+
 document.addEventListener("keydown", handleCloseModalEscape);
+
 export default getData;

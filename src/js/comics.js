@@ -21,9 +21,10 @@ const defaultPhoto =
 
 const handelHtml = ({ id, title, name, imgUrl }) => {
   const changesTitle = title.indexOf("#");
+
   const newTitle = title.slice(0, changesTitle);
 
-  return ` <li id=${id}     class="item-comics swiper-slide">
+  return ` <li id=${id}   class="item-comics swiper-slide">
                  <img class="img-comics" src=${imgUrl} alt="marvel hero"/>
                   <div class="">
                  <h3 class="title-comics">${newTitle}</h3>

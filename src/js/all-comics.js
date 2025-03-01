@@ -1,7 +1,7 @@
 import { handelPagination } from "./pagination";
 import { handelGetAllComics } from "./Api";
 import { handelShowLoader, handelHideLoader } from "./loader";
-
+ 
 const list = document.querySelector(".all-comics");
 const sectionDefault = document.querySelector(".section-default ");
 const sectionGallery = document.querySelector(".section-gallery");
@@ -14,7 +14,7 @@ const defaultPhoto =
 
 handelShowLoader();
 
-const handelResize = () => {
+const handelResizeWindow = () => {
   if (window.innerWidth <= 335) {
     limit = 5;
   } else if (window.innerWidth <= 768) {
@@ -25,7 +25,12 @@ const handelResize = () => {
 
   const start = (currentPage - 1) * limit;
 
-  handelGetAllComics(limit, start)
+   getAllComics(limit, start)
+};
+
+
+const getAllComics = (limit, start) => {
+   handelGetAllComics(limit, start)
     .then((data) => {
       handelRenderComics(data);
 
@@ -37,7 +42,9 @@ const handelResize = () => {
     .finally(() => {
       handelHideLoader();
     });
-};
+}
+
+
 
 export const handelRenderComics = (data) => {
   const { results } = data.data;
@@ -77,4 +84,4 @@ const handelCardComics = ({ newTitle, images, id, name }) => {
        `;
 };
 
-window.addEventListener("resize", handelResize());
+window.addEventListener("resize", handelResizeWindow());

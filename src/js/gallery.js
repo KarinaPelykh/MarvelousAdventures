@@ -107,6 +107,7 @@ const handelChangeColor = (prevIndex) => {
 
 // change color background
 const bg = ["../img/pantera.png", "../img/hulk-gr.png", "../img/spider.png"];
+
 const handelChangeBg = () => {
   const items = document.querySelectorAll(".item");
   items.forEach((el, index) => {
