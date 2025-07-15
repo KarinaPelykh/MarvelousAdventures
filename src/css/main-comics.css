@@ -31,7 +31,8 @@
   screen and (min-resolution: 192dpi),
   screen and (min-resolution: 2dppx) {
   .background {
-    background-image: url(/img/Marvelous_Adventures_Comics/avengers-marvel_mobail@2x.webp),
+    background-image:
+      url(/img/Marvelous_Adventures_Comics/avengers-marvel_mobail@2x.webp),
       url(/img/Marvelous_Adventures_Comics/avengers-marvel_mobile@3x.jpg),
       url(/img/Marvelous_Adventures_Comics/avengers-marvel_mobail@2x.webp),
       url(/img/Marvelous_Adventures_Comics/avengers-marvel_mobile@3x.webp);
@@ -55,7 +56,8 @@
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
     .background {
-      background-image: url(/img/Marvelous_Adventures_Comics/avengers-marvel_tablet@2x.jpg),
+      background-image:
+        url(/img/Marvelous_Adventures_Comics/avengers-marvel_tablet@2x.jpg),
         url(/img/Marvelous_Adventures_Comics/avengers-marvel_tablet@3x.jpg),
         url(/img/Marvelous_Adventures_Comics/avengers-marvel_tablet@2x.webp),
         url(/img/Marvelous_Adventures_Comics/avengers-marvel_tablet@3x.webp);
@@ -78,7 +80,8 @@
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
     .background {
-      background-image: url(/img/Marvelous_Adventures_Comics/avengers-marvel_desk@2x.jpg),
+      background-image:
+        url(/img/Marvelous_Adventures_Comics/avengers-marvel_desk@2x.jpg),
         url(/img/Marvelous_Adventures_Comics/avengers-marvel_desk@3x.jpg),
         url(/img/Marvelous_Adventures_Comics/avengers-marvel_desk@2x.webp),
         url(/img/Marvelous_Adventures_Comics/avengers-marvel_desk@3x.webp);

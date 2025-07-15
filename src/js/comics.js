@@ -10,6 +10,8 @@ const limit = 6;
 fetchAuthorization(limit)
   .then((data) => {
     const { results } = data.data;
+    console.log(results);
+
     handelAddHtml(results);
   })
   .catch((error) => {
@@ -26,7 +28,7 @@ const handelHtml = ({ id, title, name, imgUrl }) => {
 
   return ` <li id=${id}   class="item-comics swiper-slide">
                  <img class="img-comics" src=${imgUrl} alt="marvel hero"/>
-                  <div class="">
+                  <div>
                  <h3 class="title-comics">${newTitle}</h3>
                  <p class="author">${name ? name : "Kat Gin"}</p>
                   </div>

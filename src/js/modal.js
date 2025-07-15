@@ -45,38 +45,36 @@ const handelScroll = () => {
 };
 const getData = (data) => {
   const { results } = data.data;
-  const modalHtml = results.map(
-    (results) => {
-      const {
-        title,
-        creators,
-        pageCount,
-        description,
-        format,
-        images,
-        prices,
-        characters,
-        dates,
-      } = results;
-      const name = handelMapCreators(creators);
-      const data = dates.length > 0 ? dates[0].date : "-";
-      const price = prices.length > 0 ? prices[0].price : "$0.00";
-      const imageComics = handelImageComics(images);
-      const character = handelAddCharacters(characters);
+  const modalHtml = results.map((results) => {
+    const {
+      title,
+      creators,
+      pageCount,
+      description,
+      format,
+      images,
+      prices,
+      characters,
+      dates,
+    } = results;
+    const name = handelMapCreators(creators);
+    const data = dates.length > 0 ? dates[0].date : "-";
+    const price = prices.length > 0 ? prices[0].price : "$0.00";
+    const imageComics = handelImageComics(images);
+    const character = handelAddCharacters(characters);
 
-      return handelAddInfoHtml({
-        title,
-        name,
-        pageCount,
-        description,
-        format,
-        imageComics,
-        price,
-        character,
-        data,
-      });
-    }
-  );
+    return handelAddInfoHtml({
+      title,
+      name,
+      pageCount,
+      description,
+      format,
+      imageComics,
+      price,
+      character,
+      data,
+    });
+  });
 
   modal.innerHTML = modalHtml.join("");
 

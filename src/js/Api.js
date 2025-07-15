@@ -4,7 +4,7 @@ const comics = "request_user";
 const API_KEY_PRIVATE = "86167992f51495ba975666074c2de2488a64fb00";
 const API_KEY_PUBLIC = "7f8ef27ce3f21548c1d09757433025a4";
 const BASE_URL = "https://gateway.marvel.com:443";
-const TS = "karina";
+const TS = Date.now().toString();
 const HASH = CryptoJS.MD5(TS + API_KEY_PRIVATE + API_KEY_PUBLIC).toString();
 
 // Authorization

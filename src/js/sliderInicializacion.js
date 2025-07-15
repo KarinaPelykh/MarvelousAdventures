@@ -1,15 +1,15 @@
-import Swiper from 'swiper/bundle';
+import Swiper from "swiper/bundle";
 
-import 'swiper/css/bundle';
+import "swiper/css/bundle";
 
 export const handelMakeSlider = (sliderElement) => {
   if (sliderElement.length !== 0) {
     const swiperInstance = new Swiper(".swiper", {
       direction: "horizontal",
       spaceBetween: 16,
-       autoplay: {
+      autoplay: {
         delay: 2500,
-        disableOnInteraction: false
+        disableOnInteraction: false,
       },
       navigation: {
         nextEl: ".button-next",

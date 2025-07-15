@@ -1,7 +1,7 @@
 import { handelPagination } from "./pagination";
 import { handelGetAllComics } from "./Api";
 import { handelShowLoader, handelHideLoader } from "./loader";
- 
+
 const list = document.querySelector(".all-comics");
 const sectionDefault = document.querySelector(".section-default ");
 const sectionGallery = document.querySelector(".section-gallery");
@@ -25,12 +25,11 @@ const handelResizeWindow = () => {
 
   const start = (currentPage - 1) * limit;
 
-   getAllComics(limit, start)
+  getAllComics(limit, start);
 };
 
-
 const getAllComics = (limit, start) => {
-   handelGetAllComics(limit, start)
+  handelGetAllComics(limit, start)
     .then((data) => {
       handelRenderComics(data);
 
@@ -42,9 +41,7 @@ const getAllComics = (limit, start) => {
     .finally(() => {
       handelHideLoader();
     });
-}
-
-
+};
 
 export const handelRenderComics = (data) => {
   const { results } = data.data;

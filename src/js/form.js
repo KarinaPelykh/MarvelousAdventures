@@ -14,7 +14,7 @@ const renderListComics = (comics) => {
     item.classList.add("new-comic-item");
 
     item.textContent = title;
-    
+
     newListComic.appendChild(item);
   });
 };
@@ -30,7 +30,6 @@ const getTitle = (e) => {
 };
 
 const handelGEtResultSearches = (title) => {
-
   handelGetComics(title).then((data) => {
     const amount = data.data.results.length > 0;
     if (amount) {
@@ -38,25 +37,20 @@ const handelGEtResultSearches = (title) => {
       newListComic.style.display = "flex";
 
       newListComic.style.flexDirection = "column";
-
-    } 
-      newListComic.innerHTML = "<li class=new-comic-item >Nothing found</li>";
-    
+    }
+    newListComic.innerHTML = "<li class=new-comic-item >Nothing found</li>";
   });
 };
 
-
-
-
 const handelSaveDataInLocalStorage = (e) => {
-   const title = e.target.textContent;
+  const title = e.target.textContent;
 
   const userSelected = JSON.stringify(title);
 
   localStorage.setItem(comics, userSelected);
 
   window.location.replace("../page-comics.html");
-}
+};
 
 newListComic.addEventListener("click", handelSaveDataInLocalStorage);
 
